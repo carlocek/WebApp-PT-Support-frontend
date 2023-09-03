@@ -1,0 +1,15 @@
+<div class="main-container">
+    <mat-toolbar color="primary" class="mat-toolbar-centered">
+        Dashboard del PT: {{personalTrainer.name}} {{personalTrainer.surname}}
+    </mat-toolbar>
+    
+    <div class="section">
+        <p>Visualizza la lista dei tuoi clienti</p>
+        <div class="button-row">
+            <button mat-raised-button color="primary" routerLink="/pt/list-customers">Lista Clienti</button>
+        </div>
+        <mat-list class="mat-list" role="list" *ngFor="let c of personalTrainer.customerList">
+            <mat-list-item class="mat-list-item" role="listitem">{{c.name}} {{c.surname}}</mat-list-item>
+        </mat-list>
+    </div>
+</div>

@@ -17,18 +17,6 @@
     text-align: left;
   }
 
-  .mat-list {
-    display: flex;
-    flex-direction: column;
-    margin-top: -20px;
-    text-align: left;
-  }
-
-  .mat-list-item {
-    text-align: left;
-  }
-
-  
   .button-row {
     display: flex;
   }

@@ -1,23 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Trainer Web App</title>
-    <!-- Collega il file CSS esterno -->
+    <!-- Collega il tuo file CSS personalizzato -->
     <link rel="stylesheet" href="home.component.css">
 </head>
 <body>
-    <header>
-        <h1>Benvenuto nella Web App del Personal Trainer</h1>
-        <h2>La tua salute è la nostra priorità</h2>
-    </header>
-    <div class="container">
-        <h3>Benvenuto alla Web App del Personal Trainer!</h3>
-        <p>Qui troverai tutti gli strumenti necessari per raggiungere i tuoi obiettivi di fitness e salute. Il nostro personal trainer è qui per aiutarti a ottenere i migliori risultati possibili.</p>
-        <p>Accedi o registrati per iniziare il tuo percorso di allenamento personalizzato.</p>
-        <button mat-raised-button routerLink="/login/" color="primary">Login</button>
-        <button mat-raised-button color="primary">Registrati</button>
+    <div class="main-container">
+        <mat-toolbar color="primary" class="mat-toolbar-centered">
+            Benvenuto in SmarTrainer
+        </mat-toolbar>
+      
+        <!-- Sezione per Personal Trainer -->
+        <div class="section">
+            <h2>Sei un Personal Trainer?</h2>
+            <mat-list class="mat-list" role="list">
+                <mat-list-item class="mat-list-item" role="listitem">Crea e gestisci programmi di allenamento personalizzati</mat-list-item>
+                <mat-list-item class="mat-list-item" role="listitem">Monitora le prestazioni dei tuoi clienti</mat-list-item>
+            </mat-list>
+            <div class="button-row">
+                <button mat-raised-button color="primary" routerLink="/login">Accedi</button>
+                <button mat-raised-button color="primary">Registrati</button>
+            </div>
+        </div>
+          
+          <!-- Sezione per Customer -->
+        <div class="section">
+            <h2>Sei un Customer?</h2>
+            <mat-list class="mat-list" role="list">
+                <mat-list-item class="mat-list-item" role="listitem">Accedi ai tuoi programmi di allenamento personalizzati</mat-list-item>
+                <mat-list-item class="mat-list-item" role="listitem">Registra e monitora i tuoi allenamenti</mat-list-item>
+            </mat-list>
+            <div class="button-row">
+                <button mat-raised-button color="primary" routerLink="/login">Accedi</button>
+                <button mat-raised-button color="primary">Registrati</button>
+            </div>
+        </div> 
     </div>
 </body>
-</html>
+

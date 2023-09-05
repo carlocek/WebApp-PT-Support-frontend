@@ -9,8 +9,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
+import { MatFormFieldModule } from '@angular/material/form-field'; 
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker'; 
+import { MatIconModule } from '@angular/material/icon'; import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomerListComponent } from './components/customer-list/customer-list.component';
 import { PtDashboardComponent } from './components/pt-dashboard/pt-dashboard.component';
+import { CreateCustomerComponent } from './components/create-customer/create-customer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,8 @@ import { PtDashboardComponent } from './components/pt-dashboard/pt-dashboard.com
     LoginComponent,
     HomeComponent,
     CustomerListComponent,
-    PtDashboardComponent
+    PtDashboardComponent,
+    CreateCustomerComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +32,13 @@ import { PtDashboardComponent } from './components/pt-dashboard/pt-dashboard.com
     BrowserAnimationsModule,
     MatButtonModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule, 
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

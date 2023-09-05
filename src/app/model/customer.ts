@@ -8,7 +8,7 @@ export class Customer {
   dateOfBirth: Date;
   password: string;
   personalTrainer?: PersonalTrainer;
-//   workoutProgramList: WorkoutProgram[];
+//workoutProgramList: WorkoutProgram[];
 
   constructor(id: number, name: string, surname: string, email: string, dateOfBirth: Date, password: string, personalTrainer?: PersonalTrainer) {
     this.id = id;

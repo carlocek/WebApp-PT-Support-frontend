@@ -1,0 +1,41 @@
+<div class="main-container">
+
+    <mat-toolbar color="primary" class="mat-toolbar">
+        <mat-icon aria-hidden="false" aria-label="Home" fontIcon="arrow_back" routerLink="/pt/"></mat-icon> 
+        <span class="spacer"></span>
+        <mat-icon aria-hidden="false" aria-label="Back" fontIcon="home" routerLink="/home"></mat-icon>
+        <span class="spacer"></span>
+        Dashboard del PT: {{personalTrainer.name}} {{personalTrainer.surname}}
+    </mat-toolbar>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="customerForm">
+        <p>
+            <br>
+            <mat-form-field appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input matInput type="text" placeholder="Nome" formControlName="name">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Cognome</mat-label>
+                <input matInput type="text" placeholder="Cognome" formControlName="surname">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="text" placeholder="Email" formControlName="email">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Password" formControlName="password">
+            </mat-form-field>
+        </p>  
+        <button type="submit" mat-raised-button color="primary">Salva</button>
+        
+    </form>
+
+</div>

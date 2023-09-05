@@ -2,7 +2,6 @@
     padding: 20px;
   }
 
-  
   .mat-toolbar-centered {
     display: flex;
     flex-direction: column;
@@ -18,6 +17,18 @@
     text-align: left;
   }
 
+  .mat-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: -20px;
+    text-align: left;
+  }
+
+  .mat-list-item {
+    text-align: left;
+  }
+
+  
   .button-row {
     display: flex;
   }
@@ -25,3 +36,8 @@
   .button-row .mat-mdc-button-base {
     margin: 4px 8px 8px 0;
   }
+
+  .spacer {
+    margin-left: 20px;
+  }
+  

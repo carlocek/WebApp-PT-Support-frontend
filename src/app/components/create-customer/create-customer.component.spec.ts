@@ -8,6 +8,7 @@ describe('CreateCustomerComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      
       declarations: [CreateCustomerComponent]
     });
     fixture = TestBed.createComponent(CreateCustomerComponent);

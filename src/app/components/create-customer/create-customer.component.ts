@@ -33,5 +33,4 @@ onSubmit() {
   CUSTOMERS.push(customer)
   console.log(CUSTOMERS)
 }
-
 }

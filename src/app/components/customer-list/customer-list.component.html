@@ -4,12 +4,24 @@
     </mat-toolbar>
     
     <div class="section">
-        <p>Visualizza la lista dei tuoi clienti</p>
+        <p>Visualizza la lista dei tuoi clienti:</p>
         <div class="button-row">
             <button mat-raised-button color="primary" routerLink="/pt/list-customers">Lista Clienti</button>
         </div>
-        <mat-list class="mat-list" role="list" *ngFor="let c of personalTrainer.customerList">
-            <mat-list-item class="mat-list-item" role="listitem">{{c.name}} {{c.surname}}</mat-list-item>
+        <mat-list class="mat-list" role="list" *ngFor="let c of customers">
+              <mat-card class="customer-card" >
+                <mat-card-header>
+                  <mat-card-subtitle>Informazioni del customer:</mat-card-subtitle>
+                  <mat-card-title>{{c.name}} {{c.surname}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <p>Email: {{c.email}}</p>
+                  <p>Data di Nascita: {{c.dateOfBirth}}</p>
+                  <p>Lista workout: {{c.workoutProgramList}}</p>
+                  <mat-divider></mat-divider>
+                </mat-card-content>
+              </mat-card>
+              
         </mat-list>
     </div>
 </div>

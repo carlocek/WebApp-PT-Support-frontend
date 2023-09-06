@@ -3,7 +3,7 @@ import { CUSTOMERS } from 'src/app/mocks/customer-mock';
 
 export const PERSONAL_TRAINERS: PersonalTrainer[] = [
 {
-  id: 1,
+  id: 40,
   name: 'Carlo',
   surname: 'Ceccherelli',
   email: 'pt@example.com',

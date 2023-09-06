@@ -36,3 +36,12 @@
   .button-row .mat-mdc-button-base {
     margin: 4px 8px 8px 0;
   }
+
+  .customer-card {
+    max-width: 400px;
+    border: 1px solid black;
+  }
+
+  .divider-thick {
+    border-bottom: 1px solid black;
+  }

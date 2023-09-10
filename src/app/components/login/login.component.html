@@ -1,2 +1,19 @@
 <p>pagina temporanea, poi ci sarà il form del login. Per adesso clicca su temp per simulare l'accesso</p>
 <button mat-raised-button color="primary" routerLink="/pt">Temp</button>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" placeholder="Email" formControlName="email">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" placeholder="Password" formControlName="password">
+        </mat-form-field>
+    </p>  
+    <button type="submit" mat-raised-button color="primary" >Invia</button>
+    
+</form>

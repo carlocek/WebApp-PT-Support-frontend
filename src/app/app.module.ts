@@ -23,6 +23,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CustomerListComponent } from './components/customer-list/customer-list.component';
 import { PtDashboardComponent } from './components/pt-dashboard/pt-dashboard.component';
 import { CreateCustomerComponent } from './components/create-customer/create-customer.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CreateCustomerComponent } from './components/create-customer/create-cus
     CustomerListComponent,
     PtDashboardComponent,
     CreateCustomerComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

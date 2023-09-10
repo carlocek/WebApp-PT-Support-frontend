@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CustomerListComponent } from './components/customer-list/customer-list.component';
 import { PtDashboardComponent } from './components/pt-dashboard/pt-dashboard.component';
 import { CreateCustomerComponent } from './components/create-customer/create-customer.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   {path: 'pt/create-customer', component: CreateCustomerComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'pt', component: PtDashboardComponent},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];
 

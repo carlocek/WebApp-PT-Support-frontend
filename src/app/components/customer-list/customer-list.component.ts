@@ -13,8 +13,9 @@ export class CustomerListComponent {
   customers: any
 
   constructor(private ptService: PersonalTrainerService){
-    ptService.getCustomers(this.personalTrainer.id).subscribe((data: any) =>{
+    this.ptService.getCustomers(this.personalTrainer.id).subscribe((data: any) =>{
       this.customers = Object.keys(data).map((key)=>{ return data[key]})
+      console.log("AAA: ", localStorage.getItem('token'));
     })
   }
 

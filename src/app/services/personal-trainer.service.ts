@@ -7,13 +7,14 @@ import { Customer } from '../model/customer';
 })
 
 export class PersonalTrainerService {
+
+  headers = new HttpHeaders({
+    "Authorization": `Bearer ${localStorage.getItem("token")}`
+  });
+
   constructor(private http: HttpClient) {
     
   }
-
-  headers = new HttpHeaders({
-    'Authorization': `Bearer ${sessionStorage.getItem("token")}`
-  });
 
   insertCustomer(body: Customer){
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/customers/create'

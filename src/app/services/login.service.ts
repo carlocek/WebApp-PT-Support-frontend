@@ -12,12 +12,9 @@ export class LoginService {
     
   }
 
-  headers = new HttpHeaders({
-    'Authorization': `Bearer ${sessionStorage.getItem("token")}`
-  });
-
   login(body: LoginForm){
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/login'
-    return this.http.post(backendUrl , body, { headers: this.headers });
+    console.log(localStorage.getItem('token'));
+    return this.http.post(backendUrl , body);
   }
 }

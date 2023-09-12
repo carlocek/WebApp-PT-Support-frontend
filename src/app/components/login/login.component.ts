@@ -13,7 +13,7 @@ import { LoginForm } from 'src/app/model/login-form';
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  private authToken: string;
+  authToken: string;
 
   constructor(private fb: FormBuilder, private loginService: LoginService, private _snackBar: MatSnackBar) {
     this.loginForm = this.fb.group({
@@ -36,13 +36,13 @@ export class LoginComponent {
       (response: any) => {
         // Ricevi il token JWT dalla risposta HTTP
         this.authToken = response.token;
-        
+        localStorage.setItem("token", this.authToken);
         console.log('Token JWT ricevuto:', this.authToken);
       },
     );
-    sessionStorage.setItem('token', this.authToken);
+    // localStorage.setItem("token", this.authToken);
 
-    console.log(sessionStorage.getItem("token"));
+    console.log(localStorage.getItem('token'));
   }
   
   openSnackBar(message: string, action: string) {

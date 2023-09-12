@@ -14,7 +14,6 @@ export class LoginService {
 
   login(body: LoginForm){
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/login'
-    console.log(localStorage.getItem('token'));
     return this.http.post(backendUrl , body);
   }
 }

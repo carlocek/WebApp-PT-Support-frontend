@@ -15,7 +15,7 @@ export class CustomerListComponent {
   constructor(private ptService: PersonalTrainerService){
     this.ptService.getCustomers(this.personalTrainer.id).subscribe((data: any) =>{
       this.customers = Object.keys(data).map((key)=>{ return data[key]})
-      console.log("AAA: ", localStorage.getItem('token'));
+      console.log("Token preso dal local storage: ", localStorage.getItem('token'));
     })
   }
 

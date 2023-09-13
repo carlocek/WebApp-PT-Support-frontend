@@ -37,11 +37,11 @@
     margin: 4px 8px 8px 0;
   }
 
+  .spacer {
+    margin-left: 20px;
+  }
+
   .customer-card {
     max-width: 400px;
     border: 1px solid black;
-  }
-
-  .divider-thick {
-    border-bottom: 1px solid black;
   }

@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { PersonalTrainer } from 'src/app/model/personal-trainer';
-import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock';
 import { LoginService } from 'src/app/services/login.service';
 import { LoginForm } from 'src/app/model/login-form';
+import { ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +14,8 @@ export class LoginComponent {
   loginForm: FormGroup;
   authToken: string;
 
-  constructor(private fb: FormBuilder, private loginService: LoginService, private _snackBar: MatSnackBar) {
+  constructor(private fb: FormBuilder, private loginService: LoginService, private _snackBar: MatSnackBar,
+    private router: Router) {
     this.loginForm = this.fb.group({
       email: '',
       password: '',
@@ -35,14 +35,16 @@ export class LoginComponent {
     const response = this.loginService.login(lf).subscribe(
       (response: any) => {
         // Ricevi il token JWT dalla risposta HTTP
-        this.authToken = response.token;
-        localStorage.setItem("token", this.authToken);
-        console.log('Token JWT ricevuto:', this.authToken);
+        this.authToken = response.token
+        localStorage.setItem("token", this.authToken)
+        console.log('Token JWT ricevuto:', this.authToken)
+        this.router.navigate(['pt'])
+        this.openSnackBar('Login riuscito', 'Ok')
       },
     );
     // localStorage.setItem("token", this.authToken);
-
-    console.log(localStorage.getItem('token'));
+    this.openSnackBar('Login non riuscito, riprova', 'Ok')
+    console.log(localStorage.getItem('token'))
   }
   
   openSnackBar(message: string, action: string) {

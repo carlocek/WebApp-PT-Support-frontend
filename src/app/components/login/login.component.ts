@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup} from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { LoginService } from 'src/app/services/login.service';
-import { LoginForm } from 'src/app/model/login-form';
-import { ActivatedRoute, Router} from '@angular/router';
+import { Component } from '@angular/core'
+import { FormBuilder, FormGroup} from '@angular/forms'
+import { MatSnackBar } from '@angular/material/snack-bar'
+import { LoginService } from 'src/app/services/login.service'
+import { LoginForm } from 'src/app/model/login-form'
+import { ActivatedRoute, Router} from '@angular/router'
 
 @Component({
   selector: 'app-login',
@@ -11,8 +11,8 @@ import { ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  loginForm: FormGroup;
-  authToken: string;
+  loginForm: FormGroup
+  authToken: string
 
   constructor(private fb: FormBuilder, private loginService: LoginService, private _snackBar: MatSnackBar,
     private router: Router) {
@@ -20,12 +20,12 @@ export class LoginComponent {
       email: '',
       password: '',
     });
-    this.authToken = "";
+    this.authToken = ""
   }
 
   onSubmit() {
-    const lf = this.loginForm.value as LoginForm;
-    console.log(lf);
+    const lf = this.loginForm.value as LoginForm
+    console.log(lf)
 
   //   const loginRequest: LoginForm = {
   //     email: this.loginForm.get('email')!.value,
@@ -48,7 +48,7 @@ export class LoginComponent {
   }
   
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action);
+    this._snackBar.open(message, action)
   }
   
 

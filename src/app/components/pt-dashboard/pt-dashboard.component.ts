@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { PersonalTrainer } from 'src/app/model/personal-trainer';
-import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock';
+import { Component } from '@angular/core'
+import { PersonalTrainer } from 'src/app/model/personal-trainer'
+import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock'
 
 @Component({
   selector: 'app-pt-dashboard',
@@ -8,6 +8,6 @@ import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock';
   styleUrls: ['./pt-dashboard.component.css']
 })
 export class PtDashboardComponent {
-  personalTrainer: PersonalTrainer = PERSONAL_TRAINERS[0];
+  personalTrainer: PersonalTrainer = PERSONAL_TRAINERS[0]
   
 }

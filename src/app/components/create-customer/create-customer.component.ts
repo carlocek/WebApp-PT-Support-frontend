@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup} from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Customer } from 'src/app/model/customer';
-import { PersonalTrainer } from 'src/app/model/personal-trainer';
-import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock';
-import { PersonalTrainerService } from 'src/app/services/personal-trainer.service';
+import { Component } from '@angular/core'
+import { FormBuilder, FormGroup} from '@angular/forms'
+import { MatSnackBar } from '@angular/material/snack-bar'
+import { Customer } from 'src/app/model/customer'
+import { PersonalTrainer } from 'src/app/model/personal-trainer'
+import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock'
+import { PersonalTrainerService } from 'src/app/services/personal-trainer.service'
 
 @Component({
   selector: 'app-create-customer',
@@ -13,8 +13,8 @@ import { PersonalTrainerService } from 'src/app/services/personal-trainer.servic
 })
 
 export class CreateCustomerComponent {
-  customerForm: FormGroup;
-  personalTrainer: PersonalTrainer = PERSONAL_TRAINERS[0];
+  customerForm: FormGroup
+  personalTrainer: PersonalTrainer = PERSONAL_TRAINERS[0]
 
   constructor(private fb: FormBuilder, private ptService: PersonalTrainerService, private _snackBar: MatSnackBar) {
     this.customerForm = this.fb.group({
@@ -39,15 +39,15 @@ export class CreateCustomerComponent {
     const response = this.ptService.insertCustomer(customer).subscribe()
     console.log(response)
     if(response){
-      this.openSnackBar('Customer salvato', 'Ok')
+      this.openSnackBar('Cliente salvato', 'Ok')
       this.customerForm.reset()
     }
     else
-      this.openSnackBar('Errore nel salvataggio del customer', 'Ok')
+      this.openSnackBar('Errore nel salvataggio del cliente', 'Ok')
   }
   
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action);
+    this._snackBar.open(message, action)
   }
 
   dateFormatter(date: Date){

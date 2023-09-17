@@ -6,8 +6,12 @@ import { CustomerListComponent } from './components/customer-list/customer-list.
 import { PtDashboardComponent } from './components/pt-dashboard/pt-dashboard.component';
 import { CreateCustomerComponent } from './components/create-customer/create-customer.component';
 import { RegisterComponent } from './components/register/register.component';
+import { CreateExerciseComponent } from './components/create-exercise/create-exercise.component';
+import { CreateWorkoutProgramComponent } from './components/create-wprogram/create-wprogram.component';
 
 const routes: Routes = [
+  {path: 'pt/create-wprogram', component: CreateWorkoutProgramComponent},
+  {path: 'pt/create-exercise', component: CreateExerciseComponent},
   {path: 'pt/create-customer', component: CreateCustomerComponent},
   {path: 'pt/list-customers', component: CustomerListComponent},
   {path: 'pt', component: PtDashboardComponent},

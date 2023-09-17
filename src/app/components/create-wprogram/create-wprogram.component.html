@@ -1,0 +1,57 @@
+<div class="main-container">
+
+    <mat-toolbar color="primary" class="mat-toolbar">
+        <mat-icon aria-hidden="false" aria-label="Home" fontIcon="arrow_back" routerLink="/pt/"></mat-icon> 
+        <span class="spacer"></span>
+        <mat-icon aria-hidden="false" aria-label="Back" fontIcon="home" routerLink="/home"></mat-icon>
+        <span class="spacer"></span>
+        Dashboard del PT: {{personalTrainer.name}} {{personalTrainer.surname}} - Aggiungi un programma di allenamento
+    </mat-toolbar>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="wprogramForm">
+        <p>
+            <br>
+            <mat-form-field appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input matInput type="text" placeholder="Nome" formControlName="name">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Descrizione</mat-label>
+                <input matInput type="text" placeholder="Descrizione" formControlName="description">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Livello di Difficoltà</mat-label>
+                <mat-select multiple formControlName="difficultyLevel">
+                    <mat-option *ngFor="let value of diffValues" [value]="value">{{ value }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Durata</mat-label>
+                <input matInput placeholder="Durata" formControlName="estimatedDuration">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>Tipo</mat-label>
+                <mat-select multiple formControlName="type">
+                    <mat-option value="CARDIO">CARDIO</mat-option>
+                    <mat-option value="WEIGHTS">WEIGHTS</mat-option>
+                    <mat-option value="CALISTHENICS">CALISTHENICS</mat-option>
+                    <mat-option value="CROSSFIT">CROSSFIT</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </p>
+
+        <button type="submit" mat-raised-button color="primary" > Salva </button>
+    
+    </form>
+
+</div>
+
+

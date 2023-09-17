@@ -19,11 +19,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
-
+import {MatSelectModule} from '@angular/material/select';
 import { CustomerListComponent } from './components/customer-list/customer-list.component';
 import { PtDashboardComponent } from './components/pt-dashboard/pt-dashboard.component';
 import { CreateCustomerComponent } from './components/create-customer/create-customer.component';
 import { RegisterComponent } from './components/register/register.component';
+import { CreateExerciseComponent } from './components/create-exercise/create-exercise.component';
+import { SearchExerciseComponent } from './components/search-exercise/search-exercise.component';
+import { CreateWorkoutProgramComponent } from './components/create-wprogram/create-wprogram.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { RegisterComponent } from './components/register/register.component';
     PtDashboardComponent,
     CreateCustomerComponent,
     RegisterComponent,
+    CreateExerciseComponent,
+    SearchExerciseComponent,
+    CreateWorkoutProgramComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,8 @@ import { RegisterComponent } from './components/register/register.component';
     HttpClientModule,
     MatNativeDateModule,
     MatSnackBarModule,
-    MatCardModule
+    MatCardModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

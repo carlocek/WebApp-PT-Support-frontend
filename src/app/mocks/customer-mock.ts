@@ -1,5 +1,5 @@
-import { Customer } from './../model/customer';
-import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock';
+import { Customer } from './../model/customer'
+import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock'
 
 export const CUSTOMERS: Customer[] = [
   {

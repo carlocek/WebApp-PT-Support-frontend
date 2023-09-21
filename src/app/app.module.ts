@@ -19,27 +19,33 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
-import {MatSelectModule} from '@angular/material/select';
-import { CustomerListComponent } from './components/customer-list/customer-list.component';
+import { MatSelectModule } from '@angular/material/select';
+import { ListCustomerComponent } from './components/list-customer/list-customer.component';
 import { PtDashboardComponent } from './components/pt-dashboard/pt-dashboard.component';
 import { CreateCustomerComponent } from './components/create-customer/create-customer.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CreateExerciseComponent } from './components/create-exercise/create-exercise.component';
 import { SearchExerciseComponent } from './components/search-exercise/search-exercise.component';
 import { CreateWorkoutProgramComponent } from './components/create-wprogram/create-wprogram.component';
+import { ListGymMachinesComponent } from './components/list-gym-machines/list-gym-machines.component';
+import { ListExerciseComponent } from './components/list-exercise/list-exercise.component';
+import { CreateGymMachineComponent } from './components/create-gym-machine/create-gym-machine.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    CustomerListComponent,
+    ListCustomerComponent,
     PtDashboardComponent,
     CreateCustomerComponent,
     RegisterComponent,
     CreateExerciseComponent,
     SearchExerciseComponent,
     CreateWorkoutProgramComponent,
+    ListGymMachinesComponent,
+    ListExerciseComponent,
+    CreateGymMachineComponent
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup} from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { LoginService } from 'src/app/services/login.service'
 import { LoginForm } from 'src/app/model/login-form'
-import { ActivatedRoute, Router} from '@angular/router'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login',

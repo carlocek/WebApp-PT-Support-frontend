@@ -8,8 +8,10 @@ import { CreateCustomerComponent } from './components/create-customer/create-cus
 import { RegisterComponent } from './components/register/register.component';
 import { CreateExerciseComponent } from './components/create-exercise/create-exercise.component';
 import { CreateWorkoutProgramComponent } from './components/create-wprogram/create-wprogram.component';
+import { AddExerciseToWprogramComponent } from './components/add-exercise-to-wprogram/add-exercise-to-wprogram.component';
 
 const routes: Routes = [
+  {path: 'pt/add-exercise-to-wprogram', component: AddExerciseToWprogramComponent},
   {path: 'pt/create-wprogram', component: CreateWorkoutProgramComponent},
   {path: 'pt/create-exercise', component: CreateExerciseComponent},
   {path: 'pt/create-customer', component: CreateCustomerComponent},

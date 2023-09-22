@@ -17,11 +17,12 @@ import { WorkoutProgram } from 'src/app/model/workout-program';
 export class CreateWorkoutProgramComponent {
   wprogramForm: FormGroup
   personalTrainer: PersonalTrainer = PERSONAL_TRAINERS[0]
+  wprogramId: number = Math.floor(Math.random() * 100000)
   diffValues: number[] = [1,2,3,4,5,6,7,8,9,10]
 
   constructor(private fb: FormBuilder, private ptService: PersonalTrainerService, private _snackBar: MatSnackBar) {
     this.wprogramForm = this.fb.group({
-      id: Math.floor(Math.random() * 100000),
+      id: this.wprogramId,
       name: '',
       difficultyLevel:'',
       estimatedDuration:'',

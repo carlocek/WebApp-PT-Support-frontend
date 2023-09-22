@@ -32,6 +32,13 @@ export class PersonalTrainerService {
     return this.http.get(backendUrl, { headers: this.headers })
   }
 
+  getAllExercises(){
+    this.setHeaders()
+    const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/exercises/list'
+    console.log("header immesso nella richiesta http: ", this.headers)
+    return this.http.get(backendUrl, { headers: this.headers })
+  }
+
   insertExercise(body: Exercise){
     this.setHeaders()
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/exercises/create'
@@ -41,9 +48,16 @@ export class PersonalTrainerService {
 
   searchExercise(exId: number){
     this.setHeaders()
-    const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/exercises/search'+exId
+    const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/exercises/search/'+exId
     console.log("header immesso nella richiesta http: ", this.headers)
     return this.http.get(backendUrl, { headers: this.headers })
+  }
+
+  addExerciseToWorkoutProgram(wpId: number, body: Exercise){
+    this.setHeaders()
+    const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/wprograms/'+wpId+'/add-ex'
+    console.log("header immesso nella richiesta http: ", this.headers)
+    return this.http.post(backendUrl, body, { headers: this.headers })
   }
 
   insertWorkoutProgram(body: WorkoutProgram){

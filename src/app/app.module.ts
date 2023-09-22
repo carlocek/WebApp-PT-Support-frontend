@@ -27,6 +27,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { CreateExerciseComponent } from './components/create-exercise/create-exercise.component';
 import { SearchExerciseComponent } from './components/search-exercise/search-exercise.component';
 import { CreateWorkoutProgramComponent } from './components/create-wprogram/create-wprogram.component';
+import { AddExerciseToWprogramComponent } from './components/add-exercise-to-wprogram/add-exercise-to-wprogram.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { CreateWorkoutProgramComponent } from './components/create-wprogram/crea
     CreateExerciseComponent,
     SearchExerciseComponent,
     CreateWorkoutProgramComponent,
+    AddExerciseToWprogramComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ import { CreateWorkoutProgramComponent } from './components/create-wprogram/crea
     MatNativeDateModule,
     MatSnackBarModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

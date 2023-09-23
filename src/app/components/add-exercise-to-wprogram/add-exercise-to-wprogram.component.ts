@@ -27,7 +27,7 @@ export class AddExerciseToWprogramComponent implements OnInit {
     if (idParam) {
       this.wprogramId = +idParam;
     }
-    this.ptService.getAllExercises().subscribe((data: any) => {
+    this.ptService.getExercises().subscribe((data: any) => {
       // Inizializza l'array exercises con il campo selected impostato su false per tutti gli esercizi
       this.exercises = data.map((exercise: Exercise) => ({ ...exercise, selected: false }));
     });

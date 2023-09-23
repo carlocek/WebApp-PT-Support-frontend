@@ -5,6 +5,7 @@ import { Customer } from 'src/app/model/customer'
 import { PersonalTrainer } from 'src/app/model/personal-trainer'
 import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock'
 import { PersonalTrainerService } from 'src/app/services/personal-trainer.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-create-customer',
@@ -16,7 +17,8 @@ export class CreateCustomerComponent {
   customerForm: FormGroup
   personalTrainer: PersonalTrainer = PERSONAL_TRAINERS[0]
 
-  constructor(private fb: FormBuilder, private ptService: PersonalTrainerService, private _snackBar: MatSnackBar) {
+  constructor(private fb: FormBuilder, private ptService: PersonalTrainerService, private _snackBar: MatSnackBar,
+    private router: Router) {
     this.customerForm = this.fb.group({
       id: Math.floor(Math.random() * 100000),
       personalTrainerId: this.personalTrainer.id,
@@ -41,6 +43,7 @@ export class CreateCustomerComponent {
     if(response){
       this.openSnackBar('Cliente salvato', 'Ok')
       this.customerForm.reset()
+      this.router.navigate(['pt'])
     }
     else
       this.openSnackBar('Errore nel salvataggio del cliente', 'Ok')

@@ -1,1 +1,42 @@
-<p>search-exercise works!</p>
+<div class="main-container">
+  <app-pt-dashboard-toolbar [personalTrainer]="personalTrainer" [isDashboard]="false"></app-pt-dashboard-toolbar>
+    <form (ngSubmit)="onSubmit()" [formGroup]="exNameForm">
+        <p>
+            <br>
+            <font size="5">Scrivi il nome dell'esercizio da cercare</font><br />  
+            <br>         
+            <mat-form-field appearance="outline">
+                <mat-label>Nome dell'esercizio</mat-label>
+                <input matInput type="text" placeholder="Nome" formControlName="name">
+            </mat-form-field>
+        </p>
+
+        <button type="submit" mat-raised-button color="primary" [disabled]="exNameForm.value.name == ''"> Cerca </button>
+    </form>
+    <br>
+    <div *ngIf="isSubmitted">
+        <div *ngIf="numElement > 0">
+            <div class="section">
+                <p>Lista degli esercizi trovati:</p>
+                <mat-list class="mat-list" role="list" *ngFor="let ex of exercises">
+                      <mat-card class="customer-card" >
+                        <mat-card-header>
+                          <mat-card-title>{{ex.name}}</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                          <p>Difficoltà: {{ex.difficultyLevel}}</p>
+                          <p>Descrizione: {{ex.description}}</p>
+                          <p>Macchinario da usare: {{ex.machine}}</p>
+                          <mat-divider></mat-divider>
+                        </mat-card-content>
+                      </mat-card>
+                      
+                </mat-list>
+            </div>
+          </div>
+          <div *ngIf="numElement == 0">
+             <p>Nessun esercizio è stato trovato, riprova</p>
+          </div>
+    </div>
+</div>
+

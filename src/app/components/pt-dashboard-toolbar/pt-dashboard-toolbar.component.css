@@ -41,7 +41,11 @@
     margin-left: 20px;
   }
 
-  mat-form-field {
-    margin-right: 12px;
+  .orizontal-centering {
+    margin-left: 400px;
   }
-  
+
+  .customer-card {
+    max-width: 400px;
+    border: 1px solid black;
+  }

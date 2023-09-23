@@ -30,6 +30,8 @@ import { CreateWorkoutProgramComponent } from './components/create-wprogram/crea
 import { ListGymMachinesComponent } from './components/list-gym-machines/list-gym-machines.component';
 import { ListExerciseComponent } from './components/list-exercise/list-exercise.component';
 import { CreateGymMachineComponent } from './components/create-gym-machine/create-gym-machine.component';
+import { PtDashboardToolbarComponent } from './components/pt-dashboard-toolbar/pt-dashboard-toolbar.component';
+import { ListWprogramsComponent } from './components/list-wprograms/list-wprograms.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { CreateGymMachineComponent } from './components/create-gym-machine/creat
     CreateWorkoutProgramComponent,
     ListGymMachinesComponent,
     ListExerciseComponent,
-    CreateGymMachineComponent
+    CreateGymMachineComponent,
+    PtDashboardToolbarComponent,
+    ListWprogramsComponent
   ],
   imports: [
     BrowserModule,

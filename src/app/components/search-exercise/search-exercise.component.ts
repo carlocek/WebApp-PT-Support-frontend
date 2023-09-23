@@ -1,4 +1,8 @@
-import { Component } from '@angular/core'
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup} from '@angular/forms'
+import { MatSnackBar } from '@angular/material/snack-bar'
+import { PersonalTrainer } from 'src/app/model/personal-trainer'
+import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock'
 import { PersonalTrainerService } from 'src/app/services/personal-trainer.service'
 
 @Component({
@@ -7,13 +11,27 @@ import { PersonalTrainerService } from 'src/app/services/personal-trainer.servic
   styleUrls: ['./search-exercise.component.css']
 })
 export class SearchExerciseComponent {
-  exercises: any
+    exNameForm: FormGroup
+    personalTrainer: PersonalTrainer = PERSONAL_TRAINERS[0]
+    exercises: any
+    isSubmitted: boolean
+    numElement: number
 
-  // constructor(private ptService: PersonalTrainerService){
-  //   this.ptService.searchExercise().subscribe((data: any) =>{
-  //     this.exercises = Object.keys(data).map((key)=>{ return data[key]})
-  //     console.log("Token preso dal local storage: ", localStorage.getItem('token'));
-  //   })
-  // }
-
+    constructor(private fb: FormBuilder, private ptService: PersonalTrainerService, private _snackBar: MatSnackBar) {
+      this.exNameForm = this.fb.group({
+        name:''
+      });
+      this.isSubmitted = false
+      this.numElement = 0
+    }
+  
+    onSubmit() {
+      this.ptService.searchExercise(this.exNameForm.value.name).subscribe((data: any) =>{
+        this.exercises = Object.keys(data).map((key)=>{ return data[key]})
+        console.log(this.exercises)
+        this.numElement = this.exercises.length
+        console.log("Token preso dal local storage: ", localStorage.getItem('token'))
+      })
+      this.isSubmitted = true
+    }
 }

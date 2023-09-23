@@ -11,8 +11,8 @@ import { CreateWorkoutProgramComponent } from './components/create-wprogram/crea
 import { AddExerciseToWprogramComponent } from './components/add-exercise-to-wprogram/add-exercise-to-wprogram.component';
 
 const routes: Routes = [
-  {path: 'pt/add-exercise-to-wprogram', component: AddExerciseToWprogramComponent},
   {path: 'pt/create-wprogram', component: CreateWorkoutProgramComponent},
+  {path: 'pt/add-exercise-to-wprogram/:id', component: AddExerciseToWprogramComponent},
   {path: 'pt/create-exercise', component: CreateExerciseComponent},
   {path: 'pt/create-customer', component: CreateCustomerComponent},
   {path: 'pt/list-customers', component: CustomerListComponent},

@@ -1,11 +1,12 @@
+<app-create-wprogram></app-create-wprogram>
+
 <div class="main-container">
 
-    <p>Visualizza la lista degli esercizi:</p>
+    <p>Lista degli esercizi:</p>
     <div *ngFor="let exercise of exercises">
         <mat-checkbox [(ngModel)]="exercise.selected">{{ exercise.name }}</mat-checkbox>
     </div>
 
-    
     <button mat-raised-button color="primary" (click)="addSelectedExercises()">Aggiungi esercizi</button>
 
 </div>

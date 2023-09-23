@@ -9,12 +9,16 @@ import { RegisterComponent } from './components/register/register.component';
 import { CreateGymMachineComponent } from './components/create-gym-machine/create-gym-machine.component';
 import { CreateExerciseComponent } from './components/create-exercise/create-exercise.component';
 import { CreateWorkoutProgramComponent } from './components/create-wprogram/create-wprogram.component';
+
+import { AddExerciseToWprogramComponent } from './components/add-exercise-to-wprogram/add-exercise-to-wprogram.component';
 import { ListGymMachinesComponent } from './components/list-gym-machines/list-gym-machines.component';
 import { ListExerciseComponent } from './components/list-exercise/list-exercise.component';
 
-
 const routes: Routes = [
+  {path: 'pt/add-exercise-to-wprogram', component: AddExerciseToWprogramComponent},
   {path: 'pt/create-gym-machine', component: CreateGymMachineComponent},
+
+
   {path: 'pt/create-wprogram', component: CreateWorkoutProgramComponent},
   {path: 'pt/create-exercise', component: CreateExerciseComponent},
   {path: 'pt/create-customer', component: CreateCustomerComponent},

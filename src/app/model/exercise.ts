@@ -6,6 +6,7 @@ export class Exercise {
   difficultyLevel: number
   machine: string
   description: string
+  selected: unknown
 
   constructor(id: number, machineId: number, name: string, difficultyLevel: number, machine: string, description: string) {
     this.id = id

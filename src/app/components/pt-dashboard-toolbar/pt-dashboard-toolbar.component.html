@@ -1,0 +1,10 @@
+<mat-toolbar color="primary" class="mat-toolbar">
+    <div *ngIf="!isDashboard">
+        <mat-icon aria-hidden="false" aria-label="Back" fontIcon="arrow_back" routerLink="/pt/"></mat-icon> 
+        <span class="spacer"></span>
+    </div>
+    <mat-icon aria-hidden="false" aria-label="Home" fontIcon="home" routerLink="/home"></mat-icon>
+    <div class = "orizontal-centering">
+        Dashboard del PT: {{personalTrainer.name}} {{personalTrainer.surname}}
+    </div>
+</mat-toolbar>

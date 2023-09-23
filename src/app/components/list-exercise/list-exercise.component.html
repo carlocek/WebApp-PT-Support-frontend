@@ -1,27 +1,20 @@
 <div class="main-container">
-    <mat-toolbar color="primary" class="mat-toolbar">
-      <mat-icon aria-hidden="false" aria-label="Home" fontIcon="arrow_back" routerLink="/pt/"></mat-icon> 
-      <span class="spacer"></span>
-      <mat-icon aria-hidden="false" aria-label="Back" fontIcon="home" routerLink="/home"></mat-icon>
-      <span class="spacer"></span>
-        Dashboard del PT: {{personalTrainer.name}} {{personalTrainer.surname}}
-    </mat-toolbar>
-    
-    <div class="section">
-        <p>Visualizza la lista degli esercizi:</p>
-        <mat-list class="mat-list" role="list" *ngFor="let ex of exercise">
-              <mat-card class="customer-card" >
-                <mat-card-header>
-                  <mat-card-title>{{ex.name}}</mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                  <p>Difficoltà: {{ex.difficultyLevel}}</p>
-                  <p>Descrizione: {{ex.description}}</p>
-                  <p>Macchinario da usare: {{ex.machine}}</p>
-                  <mat-divider></mat-divider>
-                </mat-card-content>
-              </mat-card>
-              
-        </mat-list>
-    </div>
+  <app-pt-dashboard-toolbar [personalTrainer]="personalTrainer" [isDashboard]="false"></app-pt-dashboard-toolbar>
+  <div class="section">
+      <p>Visualizza la lista degli esercizi:</p>
+      <mat-list class="mat-list" role="list" *ngFor="let ex of exercise">
+            <mat-card class="customer-card" >
+              <mat-card-header>
+                <mat-card-title>{{ex.name}}</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>Difficoltà: {{ex.difficultyLevel}}</p>
+                <p>Descrizione: {{ex.description}}</p>
+                <p>Macchinario da usare: {{ex.machine}}</p>
+                <mat-divider></mat-divider>
+              </mat-card-content>
+            </mat-card>
+            
+      </mat-list>
+  </div>
 </div>

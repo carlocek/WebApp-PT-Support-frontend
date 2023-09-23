@@ -9,10 +9,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { CreateGymMachineComponent } from './components/create-gym-machine/create-gym-machine.component';
 import { CreateExerciseComponent } from './components/create-exercise/create-exercise.component';
 import { CreateWorkoutProgramComponent } from './components/create-wprogram/create-wprogram.component';
-
 import { AddExerciseToWprogramComponent } from './components/add-exercise-to-wprogram/add-exercise-to-wprogram.component';
 import { ListGymMachinesComponent } from './components/list-gym-machines/list-gym-machines.component';
 import { ListExerciseComponent } from './components/list-exercise/list-exercise.component';
+import { SearchExerciseComponent } from './components/search-exercise/search-exercise.component';
+import { ListWprogramsComponent } from './components/list-wprograms/list-wprograms.component';
 
 const routes: Routes = [
   {path: 'pt/create-gym-machine', component: CreateGymMachineComponent},
@@ -27,6 +28,8 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'pt/list-gym-machines', component: ListGymMachinesComponent},
   {path: 'pt/list-exercises', component: ListExerciseComponent},
+  {path: 'pt/search-exercise', component: SearchExerciseComponent},
+  {path: 'pt/list-workout-programs', component: ListWprogramsComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];
 

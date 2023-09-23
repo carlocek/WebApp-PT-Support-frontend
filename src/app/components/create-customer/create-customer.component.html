@@ -1,13 +1,5 @@
 <div class="main-container">
-
-    <mat-toolbar color="primary" class="mat-toolbar">
-        <mat-icon aria-hidden="false" aria-label="Home" fontIcon="arrow_back" routerLink="/pt/"></mat-icon> 
-        <span class="spacer"></span>
-        <mat-icon aria-hidden="false" aria-label="Back" fontIcon="home" routerLink="/home"></mat-icon>
-        <span class="spacer"></span>
-        Dashboard del PT: {{personalTrainer.name}} {{personalTrainer.surname}} - Aggiungi un cliente
-    </mat-toolbar>
-
+    <app-pt-dashboard-toolbar [personalTrainer]="personalTrainer" [isDashboard]="false"></app-pt-dashboard-toolbar>
     <form (ngSubmit)="onSubmit()" [formGroup]="customerForm">
         <p>
             <br>

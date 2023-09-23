@@ -1,7 +1,6 @@
-<div class="main-container">
-    <mat-toolbar color="primary" class="mat-toolbar-centered">
-        Dashboard del PT: {{personalTrainer.name}} {{personalTrainer.surname}}
-    </mat-toolbar>
+<div class="main-container">  
+    <app-pt-dashboard-toolbar [personalTrainer]="personalTrainer" [isDashboard]="true"></app-pt-dashboard-toolbar> 
+
     <div class="section">
         <p>Visualizza la lista dei tuoi clienti</p>
         <div class="button-row">
@@ -48,6 +47,20 @@
         <p>Visualizza gli Esercizi</p>
         <div class="button-row">
             <button mat-raised-button color="primary" routerLink="/pt/list-exercises">Lista Esercizi</button>
+        </div>
+    </div>
+
+    <div class="section">
+        <p>Cerca uno o più esercizi</p>
+        <div class="button-row">
+            <button mat-raised-button color="primary" routerLink="/pt/search-exercise">Cerca Esercizi</button>
+        </div>
+    </div>
+
+    <div class="section">
+        <p>Visualizza le schede di Allenamento</p>
+        <div class="button-row">
+            <button mat-raised-button color="primary" routerLink="/pt/list-workout-programs">Lista Schede di Allenamento</button>
         </div>
     </div>
 </div>

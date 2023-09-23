@@ -1,12 +1,5 @@
-<div class="main-container">
-    <mat-toolbar color="primary" class="mat-toolbar">
-      <mat-icon aria-hidden="false" aria-label="Home" fontIcon="arrow_back" routerLink="/pt/"></mat-icon> 
-      <span class="spacer"></span>
-      <mat-icon aria-hidden="false" aria-label="Back" fontIcon="home" routerLink="/home"></mat-icon>
-      <span class="spacer"></span>
-        Dashboard del PT: {{personalTrainer.name}} {{personalTrainer.surname}}
-    </mat-toolbar>
-    
+<div class = "main-container">
+  <app-pt-dashboard-toolbar [personalTrainer]="personalTrainer" [isDashboard]="false"></app-pt-dashboard-toolbar>
     <div class="section">
         <p>Visualizza la lista dei Macchinari:</p>
         <mat-list class="mat-list" role="list" *ngFor="let gm of machines">

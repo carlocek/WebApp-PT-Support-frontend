@@ -7,7 +7,6 @@ import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock'
   templateUrl: './pt-dashboard.component.html',
   styleUrls: ['./pt-dashboard.component.css']
 })
-export class PtDashboardComponent {
+export class PtDashboardComponent{
   personalTrainer: PersonalTrainer = PERSONAL_TRAINERS[0]
-  
 }

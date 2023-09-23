@@ -1,0 +1,23 @@
+<div class="main-container">
+    <app-pt-dashboard-toolbar [personalTrainer]="personalTrainer" [isDashboard]="false"></app-pt-dashboard-toolbar>
+    <div class="section">
+        <p>Visualizza le schede di allenamento:</p>
+        <mat-list class="mat-list" role="list" *ngFor="let wp of wPrograms">
+              <mat-card class="customer-card" >
+                <mat-card-header>
+                  <mat-card-title>{{wp.name}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <p>Difficoltà: {{wp.difficultyLevel}}</p>
+                  <p>Durata media dell'allenamento: {{wp.estimatedDuration}} minuti</p>
+                  <p>Descrizione: {{wp.description}}</p>
+                  <p>Lista Esercizi:</p>
+                  <div class="button-row">
+                    <button mat-raised-button color="primary" routerLink="/pt/add-exercise-to-workout-program">Aggiungi Esercizi</button>
+                </div>
+                </mat-card-content>
+              </mat-card>
+              
+        </mat-list>
+    </div>
+  </div>

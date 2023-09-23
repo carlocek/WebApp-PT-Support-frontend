@@ -27,6 +27,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { CreateExerciseComponent } from './components/create-exercise/create-exercise.component';
 import { SearchExerciseComponent } from './components/search-exercise/search-exercise.component';
 import { CreateWorkoutProgramComponent } from './components/create-wprogram/create-wprogram.component';
+import { AddExerciseToWprogramComponent } from './components/add-exercise-to-wprogram/add-exercise-to-wprogram.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 import { ListGymMachinesComponent } from './components/list-gym-machines/list-gym-machines.component';
 import { ListExerciseComponent } from './components/list-exercise/list-exercise.component';
 import { CreateGymMachineComponent } from './components/create-gym-machine/create-gym-machine.component';
@@ -45,6 +48,7 @@ import { ListWprogramsComponent } from './components/list-wprograms/list-wprogra
     CreateExerciseComponent,
     SearchExerciseComponent,
     CreateWorkoutProgramComponent,
+    AddExerciseToWprogramComponent,
     ListGymMachinesComponent,
     ListExerciseComponent,
     CreateGymMachineComponent,
@@ -68,7 +72,8 @@ import { ListWprogramsComponent } from './components/list-wprograms/list-wprogra
     MatNativeDateModule,
     MatSnackBarModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

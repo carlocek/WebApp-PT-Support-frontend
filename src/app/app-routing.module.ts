@@ -15,11 +15,9 @@ import { ListGymMachinesComponent } from './components/list-gym-machines/list-gy
 import { ListExerciseComponent } from './components/list-exercise/list-exercise.component';
 
 const routes: Routes = [
-  {path: 'pt/add-exercise-to-wprogram', component: AddExerciseToWprogramComponent},
   {path: 'pt/create-gym-machine', component: CreateGymMachineComponent},
-
-
   {path: 'pt/create-wprogram', component: CreateWorkoutProgramComponent},
+  {path: 'pt/add-exercise-to-wprogram/:id', component: AddExerciseToWprogramComponent},
   {path: 'pt/create-exercise', component: CreateExerciseComponent},
   {path: 'pt/create-customer', component: CreateCustomerComponent},
   {path: 'pt/list-customers', component: ListCustomerComponent},

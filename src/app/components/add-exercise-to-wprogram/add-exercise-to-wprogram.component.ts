@@ -19,8 +19,7 @@ export class AddExerciseToWprogramComponent implements OnInit {
 
   exercises: Exercise[] = []
 
-  constructor(private route: ActivatedRoute, private ptService: PersonalTrainerService){
-  }
+  constructor(private route: ActivatedRoute, private ptService: PersonalTrainerService){}
 
   ngOnInit() {
     const idParam = this.route.snapshot.paramMap.get('id');

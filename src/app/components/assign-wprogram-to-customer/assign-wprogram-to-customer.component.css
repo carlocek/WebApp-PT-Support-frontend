@@ -37,16 +37,10 @@
     margin: 4px 8px 8px 0;
   }
 
-  .error-container {
-    background-color: rgba(245, 43, 43, 0.347); /* Sfondo rosso sfocato */
-    padding: 10px;
-    border-radius: 4px;
-    width: fit-content; /* Adatta la larghezza al contenuto */
-    margin: 10px auto; /* Per centrarlo orizzontalmente */
+  .spacer {
+    margin-left: 20px;
   }
-  
-  .error-message {
-    color: red; /* Colore del testo rosso */
-    font-weight: bold; /* Testo in grassetto */
-    font-size: 14px; /* Dimensione del carattere */
+
+  mat-form-field {
+    margin-right: 12px;
   }

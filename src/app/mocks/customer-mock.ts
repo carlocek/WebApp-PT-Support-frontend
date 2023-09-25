@@ -11,7 +11,7 @@ export const CUSTOMERS: Customer[] = [
     dateOfBirth: new Date('1988-07-10'),
     password: 'passwordCliente1',
     personalTrainer: 'Carlo',
-    workoutProgramList: '' 
+    wpList: []
   },
   {
     id: 11,
@@ -22,6 +22,6 @@ export const CUSTOMERS: Customer[] = [
     dateOfBirth: new Date('1988-07-10'),
     password: 'passwordCliente2',
     personalTrainer: 'Carlo',
-    workoutProgramList: ''
+    wpList: []
   },
 ];

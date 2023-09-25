@@ -6,6 +6,13 @@
         <mat-toolbar color="primary" class="mat-toolbar-centered">
             Benvenuto in SmarTrainer 
         </mat-toolbar>
+
+        <div class="error-container" *ngIf="tokenExpired">
+                <div class="error-message">
+                  Il token è scaduto il {{ tokenExpirationDate | date: 'dd/MM/yyyy HH:mm:ss' }}. Effettua un nuovo accesso
+                </div>
+            
+        </div>
       
         <!-- Sezione per Personal Trainer -->
         <div class="section">
@@ -16,7 +23,12 @@
                 <mat-list-item class="mat-list-item" role="listitem">Aggiungi un utente</mat-list-item>
             </mat-list>
             <div class="button-row">
-                <button mat-raised-button color="primary" routerLink="/login">Accedi</button>
+                <div *ngIf="!tokenExpired">
+                    <button mat-raised-button color="primary" routerLink="/pt">Accedi</button>
+                </div>
+                <div *ngIf="tokenExpired">
+                    <button mat-raised-button color="primary" routerLink="/login">Accedi</button>
+                </div>
                 <button mat-raised-button color="primary" routerLink="/register">Registrati</button>
             </div>
         </div>

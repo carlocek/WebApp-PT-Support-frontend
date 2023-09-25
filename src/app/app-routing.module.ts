@@ -14,10 +14,12 @@ import { ListGymMachinesComponent } from './components/list-gym-machines/list-gy
 import { ListExerciseComponent } from './components/list-exercise/list-exercise.component';
 import { SearchExerciseComponent } from './components/search-exercise/search-exercise.component';
 import { ListWprogramsComponent } from './components/list-wprograms/list-wprograms.component';
+import { AssignWorkoutProgramToCustomerComponent } from './components/assign-wprogram-to-customer/assign-wprogram-to-customer.component';
 
 const routes: Routes = [
   {path: 'pt/create-gym-machine', component: CreateGymMachineComponent},
   {path: 'pt/create-wprogram', component: CreateWorkoutProgramComponent},
+  {path: 'pt/assign-wprogram-to-customer/:id', component: AssignWorkoutProgramToCustomerComponent},
   {path: 'pt/add-exercise-to-wprogram/:id', component: AddExerciseToWprogramComponent},
   {path: 'pt/create-exercise', component: CreateExerciseComponent},
   {path: 'pt/create-customer', component: CreateCustomerComponent},

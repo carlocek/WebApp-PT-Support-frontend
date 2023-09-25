@@ -11,7 +11,10 @@
                 <mat-card-content>
                   <p>Email: {{c.email}}</p>
                   <p>Data di Nascita: {{c.dateOfBirth}}</p>
-                  <p>Lista workout: {{c.workoutProgramList}}</p>
+                  <p>Lista programmi: {{c.workoutProgramList}}</p>
+                  <div class="button-row">
+                    <button mat-raised-button color="primary" routerLink="/pt/assign-wprogram-to-customer/{{c.id}}">Assegna programma</button>
+                  </div>
                   <mat-divider></mat-divider>
                 </mat-card-content>
               </mat-card>

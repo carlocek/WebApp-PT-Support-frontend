@@ -1,11 +1,12 @@
 export class WorkoutProgram {
-    id: number
-    name: string
-    difficultyLevel: number
-    estimatedDuration: number
-    type: string
-    description: string
-    exList: string[]
+  id: number
+  name: string
+  difficultyLevel: number
+  estimatedDuration: number
+  type: string
+  description: string
+  exList: string[]
+  selected: unknown
   
     constructor(id: number, estimatedDuration: number, name: string, difficultyLevel: number, type: string, description: string, exList: string[]) {
       this.id = id

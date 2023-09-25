@@ -9,6 +9,6 @@ export const PERSONAL_TRAINERS: PersonalTrainer[] = [
   email: 'pt@example.com',
   dateOfBirth: new Date('1998-10-13'),
   password: 'passwordPT',
-  customerList: CUSTOMERS,
+  // customerList: CUSTOMERS,
 },
 ];

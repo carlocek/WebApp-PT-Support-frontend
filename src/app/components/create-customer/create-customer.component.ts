@@ -16,11 +16,12 @@ import { Router } from '@angular/router'
 export class CreateCustomerComponent {
   customerForm: FormGroup
   personalTrainer: PersonalTrainer = PERSONAL_TRAINERS[0]
+  customerId: number = Math.floor(Math.random() * 100000)
 
   constructor(private fb: FormBuilder, private ptService: PersonalTrainerService, private _snackBar: MatSnackBar,
     private router: Router) {
     this.customerForm = this.fb.group({
-      id: Math.floor(Math.random() * 100000),
+      id: this.customerId,
       personalTrainerId: this.personalTrainer.id,
       name: '',
       surname: '',
@@ -28,7 +29,7 @@ export class CreateCustomerComponent {
       dateOfBirth: null,
       password: '',
       personalTrainer: this.personalTrainer.name,
-      workoutProgramList: null
+      wpList:''
     });
   }
 
@@ -43,7 +44,7 @@ export class CreateCustomerComponent {
     if(response){
       this.openSnackBar('Cliente salvato', 'Ok')
       this.customerForm.reset()
-      this.router.navigate(['pt'])
+      // this.router.navigate(['pt'])
     }
     else
       this.openSnackBar('Errore nel salvataggio del cliente', 'Ok')

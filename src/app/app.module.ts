@@ -64,7 +64,7 @@ import { ChangePtComponent } from './components/change-pt/change-pt.component';
     CreateGymMachineComponent,
     PtDashboardToolbarComponent,
     ListWprogramsComponent,
-    AssignWorkoutProgramToCustomerComponent
+    AssignWorkoutProgramToCustomerComponent,
     SearchWprogramComponent,
     SearchCustomerComponent,
     LoginCustomerComponent,

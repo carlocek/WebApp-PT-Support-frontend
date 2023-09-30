@@ -15,11 +15,12 @@ import { Router } from '@angular/router'
 
 export class CreateCustomerComponent {
   customerForm: FormGroup
+  customerId: number = Math.floor(Math.random() * 100000)
 
   constructor(private fb: FormBuilder, private ptService: PersonalTrainerService, private _snackBar: MatSnackBar,
     private router: Router) {
     this.customerForm = this.fb.group({
-      id: Math.floor(Math.random() * 100000),
+      id: this.customerId,
       personalTrainerId: localStorage.getItem('ptId'),
       name: '',
       surname: '',

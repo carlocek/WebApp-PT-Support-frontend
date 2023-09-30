@@ -23,11 +23,6 @@ export class LoginComponent {
       password: '',
     });
     this.authToken = ""
-
-    // DA CAMBIARE
-    if(localStorage.getItem('ptName')!=null){
-      this.router.navigate(['pt'])
-    }
   }
 
   onSubmit() {
@@ -40,6 +35,7 @@ export class LoginComponent {
         this.authToken = response.token;
         localStorage.setItem('token', this.authToken);
         console.log('Token JWT ricevuto:', this.authToken);
+        localStorage.setItem("ptEmail", this.loginForm.value.email)
         this.router.navigate(['pt']);
         this.openSnackBar('Login riuscito', 'Ok');
       },

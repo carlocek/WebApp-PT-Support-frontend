@@ -1,9 +1,4 @@
-  :host {
-    display: block;
-    min-height: 100vh;
-  }
-  
-  .main-container {
+.main-container {
     padding: 20px;
   }
 
@@ -40,14 +35,6 @@
 
   .button-row .mat-mdc-button-base {
     margin: 4px 8px 8px 0;
-  }
-
-  .spacer {
-    margin-left: 20px;
-  }
-
-  mat-form-field {
-    margin-right: 12px;
   }
   
   .wallpaper{

@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { PersonalTrainer } from 'src/app/model/personal-trainer'
-import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock'
 import { PersonalTrainerService } from 'src/app/services/personal-trainer.service'
 
 @Component({
@@ -9,7 +7,6 @@ import { PersonalTrainerService } from 'src/app/services/personal-trainer.servic
   styleUrls: ['./list-gym-machines.component.css']
 })
 export class ListGymMachinesComponent {
-  personalTrainer: PersonalTrainer = PERSONAL_TRAINERS[0]
   machines: any
 
   constructor(private ptService: PersonalTrainerService){

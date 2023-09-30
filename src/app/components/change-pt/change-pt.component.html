@@ -1,0 +1,21 @@
+<div class="main-container">
+    <app-customer-dashboard-toolbar [isDashboard]="false"></app-customer-dashboard-toolbar>
+
+     <form (ngSubmit)="onSubmit()" [formGroup]="customerPTForm">
+          <p>Scegli un Personal Trainer:</p>
+          <mat-list class="mat-list" role="list" *ngFor="let pt of personalTrainers">  
+              <mat-card class="customer-card" >
+                <mat-card-header>
+                  <mat-card-title>{{pt.name}} {{pt.surname}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <p>Email: {{pt.email}}</p>
+                  <p>Data di Nascita: {{pt.dateOfBirth}}</p>
+                </mat-card-content>
+                <div class="button-row">
+                    <button type="submit" mat-raised-button color="primary" (click)="setPtId(pt.id)"> Scegli </button>
+                </div>
+              </mat-card>
+          </mat-list>
+        </form>
+  </div>

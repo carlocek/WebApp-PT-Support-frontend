@@ -44,4 +44,8 @@
   .customer-card {
     max-width: 400px;
     border: 1px solid black;
+    display: block;
+    background-image: url('src/assets/Sfondocard.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
   }

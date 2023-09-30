@@ -24,3 +24,20 @@
   .button-row .mat-mdc-button-base {
     margin: 4px 8px 8px 0;
   }
+
+  .dashboard-card {
+    max-width: 400px;
+    border: 2px solid black;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Due colonne di larghezza uguale */
+    gap: 2px; /* Spazio tra le card */
+  }
+
+  p {
+    font-size: 16px; /* Imposta la dimensione del font a 18 pixel */
+  }

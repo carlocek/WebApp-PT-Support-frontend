@@ -1,21 +1,26 @@
 <div class="main-container">
-  <app-pt-dashboard-toolbar [personalTrainer]="personalTrainer"  [isDashboard]="false"></app-pt-dashboard-toolbar>
+  <app-pt-dashboard-toolbar [isDashboard]="false"></app-pt-dashboard-toolbar>
     <div class="section">
         <p>Lista clienti:</p>
         <mat-list class="mat-list" role="list" *ngFor="let c of customers">
-              <mat-card class="customer-card" >
-                <mat-card-header>
-                  <mat-card-subtitle>Informazioni del customer:</mat-card-subtitle>
-                  <mat-card-title>{{c.name}} {{c.surname}}</mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                  <p>Email: {{c.email}}</p>
-                  <p>Data di Nascita: {{c.dateOfBirth}}</p>
-                  <p>Lista workout: {{c.workoutProgramList}}</p>
-                  <mat-divider></mat-divider>
-                </mat-card-content>
-              </mat-card>
-              
+          <div *ngIf="c.personalTrainer != null && c.workoutProgramList != null">
+            
+            <mat-card class="customer-card" >
+              <mat-card-header>
+                <mat-card-subtitle>Informazioni del customer:</mat-card-subtitle>
+                <mat-card-title>{{c.name}} {{c.surname}}</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>Email: {{c.email}}</p>
+                <p>Data di Nascita: {{c.dateOfBirth}}</p>
+                <p>Lista workout:</p>
+                {{c.workoutProgramList}}
+              </mat-card-content>
+              <div class="button-row">
+                <button mat-raised-button color="primary" (click)="disableCustomer(c.id)">Disabilita Utente</button>              
+              </div>
+            </mat-card>
+          </div>
         </mat-list>
     </div>
 </div>

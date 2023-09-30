@@ -1,0 +1,14 @@
+<mat-toolbar color="primary" class="mat-toolbar-centered">
+    <div *ngIf="!isDashboard">
+        <mat-icon aria-hidden="false" aria-label="Back" fontIcon="arrow_back" routerLink="/customer"></mat-icon> 
+        <span class="spacer"></span>
+    </div>
+    <mat-icon aria-hidden="false" aria-label="Home" fontIcon="home" routerLink="/home"></mat-icon>
+    <span class="spacer"></span>
+    <h1>Dashboard dell'Utente: {{name}} {{surname}}</h1>
+    <span class="spacer"></span>
+    <div class="button-row">
+        <button mat-raised-button color="primary" (click)="logout()">Logout</button>
+    </div>
+</mat-toolbar>
+<br>

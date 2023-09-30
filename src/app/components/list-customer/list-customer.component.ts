@@ -2,22 +2,30 @@ import { Component } from '@angular/core'
 import { PersonalTrainer } from 'src/app/model/personal-trainer'
 import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock'
 import { PersonalTrainerService } from 'src/app/services/personal-trainer.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-list-customer',
   templateUrl: './list-customer.component.html',
   styleUrls: ['./list-customer.component.css']
 })
+
 export class ListCustomerComponent {
-  personalTrainer: PersonalTrainer = PERSONAL_TRAINERS[0]
   customers: any
 
-  constructor(private ptService: PersonalTrainerService){
-    this.ptService.getCustomers(this.personalTrainer.id).subscribe((data: any) =>{
+  constructor(private ptService: PersonalTrainerService, private router:Router){
+    this.ptService.getCustomers(localStorage.getItem('ptId')).subscribe((data: any) =>{
       this.customers = Object.keys(data).map((key)=>{ return data[key]})
       console.log(this.customers)
       console.log("Token preso dal local storage: ", localStorage.getItem('token'))
     })
+  }
+
+  disableCustomer(customerId: number){
+    this.ptService.disableCutomers(customerId).subscribe((data: any) =>{
+      console.log("Token preso dal local storage: ", localStorage.getItem('token'))
+    })
+    this.router.navigate(['pt'])
   }
 
 }

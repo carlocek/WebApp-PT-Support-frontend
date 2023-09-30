@@ -10,6 +10,7 @@ import { Router } from '@angular/router'
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent {
   loginForm: FormGroup
   authToken: string
@@ -21,6 +22,11 @@ export class LoginComponent {
       password: '',
     });
     this.authToken = ""
+
+    // DA CAMBIARE
+    if(localStorage.getItem('ptName')!=null){
+      this.router.navigate(['pt'])
+    }
   }
 
   onSubmit() {
@@ -36,7 +42,9 @@ export class LoginComponent {
       (response: any) => {
         // Ricevi il token JWT dalla risposta HTTP
         this.authToken = response.token
+        console.log(response)
         localStorage.setItem("token", this.authToken)
+        localStorage.setItem("ptEmail", this.loginForm.value.email)
         console.log('Token JWT ricevuto:', this.authToken)
         this.router.navigate(['pt'])
         this.openSnackBar('Login riuscito', 'Ok')
@@ -48,8 +56,9 @@ export class LoginComponent {
   }
   
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action)
+    this._snackBar.open(message, action, {
+      duration: 5000
+    })
   }
   
-
 }

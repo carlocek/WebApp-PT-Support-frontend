@@ -1,5 +1,5 @@
 <div class="main-container">
-    <app-pt-dashboard-toolbar [personalTrainer]="personalTrainer"></app-pt-dashboard-toolbar>
+    <app-pt-dashboard-toolbar [isDashboard]="false"></app-pt-dashboard-toolbar>
     <form (ngSubmit)="onSubmit()" [formGroup]="wprogramForm">
         <p>
             <br>
@@ -17,7 +17,7 @@
         <p>
             <mat-form-field appearance="outline">
                 <mat-label>Livello di Difficoltà</mat-label>
-                <mat-select multiple formControlName="difficultyLevel">
+                <mat-select multiple formControlName="difficultyLevel" [multiple]="false">
                     <mat-option *ngFor="let value of diffValues" [value]="value">{{ value }}</mat-option>
                 </mat-select>
             </mat-form-field>
@@ -31,7 +31,7 @@
         <p>
             <mat-form-field appearance="outline">
                 <mat-label>Tipo</mat-label>
-                <mat-select multiple formControlName="type">
+                <mat-select multiple formControlName="type" [multiple]="false">
                     <mat-option value="CARDIO">CARDIO</mat-option>
                     <mat-option value="WEIGHTS">WEIGHTS</mat-option>
                     <mat-option value="CALISTHENICS">CALISTHENICS</mat-option>
@@ -45,9 +45,9 @@
     </form>
 
     <!-- <app-add-exercise-to-wprogram [wprogramId]="wprogramId"></app-add-exercise-to-wprogram> -->
-    <div class="button-row">
+    <!-- <div class="button-row">
         <button mat-raised-button color="primary" routerLink="/pt/add-exercise-to-wprogram/{{wprogramId}}">Visualizza esercizi da aggiungere</button>
-    </div>
+    </div> -->
 
 </div>
 

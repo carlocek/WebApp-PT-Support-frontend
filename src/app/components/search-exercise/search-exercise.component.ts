@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup} from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar'
-import { PersonalTrainer } from 'src/app/model/personal-trainer'
-import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock'
 import { PersonalTrainerService } from 'src/app/services/personal-trainer.service'
 
 @Component({
@@ -12,7 +10,6 @@ import { PersonalTrainerService } from 'src/app/services/personal-trainer.servic
 })
 export class SearchExerciseComponent {
     exNameForm: FormGroup
-    personalTrainer: PersonalTrainer = PERSONAL_TRAINERS[0]
     exercises: any
     isSubmitted: boolean
     numElement: number

@@ -19,6 +19,9 @@
               <div class="button-row">
                 <button mat-raised-button color="primary" (click)="disableCustomer(c.id)">Disabilita Utente</button>              
               </div>
+              <div class="button-row">
+                <button mat-raised-button color="primary" routerLink="/pt/assign-wprogram-to-customer/{{c.id}}">Assegna Scheda di Allenamento</button>              
+              </div>
             </mat-card>
           </div>
         </mat-list>

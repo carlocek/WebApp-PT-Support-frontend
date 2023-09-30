@@ -26,9 +26,23 @@ export class PersonalTrainerService {
     return this.http.post(backendUrl, body, { headers: this.headers })
   }
 
-  getCustomers(ptId: number){
+  getCustomers(ptId: string|null){
     this.setHeaders()
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/ptrainers/list-customer/'+ptId
+    console.log("header immesso nella richiesta http: ", this.headers)
+    return this.http.get(backendUrl, { headers: this.headers })
+  }
+
+  disableCutomers(customerId: number){
+    this.setHeaders()
+    const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/customers/disable/'+customerId
+    console.log("header immesso nella richiesta http: ", this.headers)
+    return this.http.put(backendUrl, null, { headers: this.headers })
+  }
+
+  searchCustomer(cName: string){
+    this.setHeaders()
+    const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/customers/search/'+cName
     console.log("header immesso nella richiesta http: ", this.headers)
     return this.http.get(backendUrl, { headers: this.headers })
   }
@@ -66,6 +80,20 @@ export class PersonalTrainerService {
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/wprograms/create'
     console.log("header immesso nella richiesta http: ", this.headers)
     return this.http.post(backendUrl, body, { headers: this.headers })
+  }
+
+  searchWorkoutProgram(wpName: string){
+    this.setHeaders()
+    const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/wprograms/search/'+wpName
+    console.log("header immesso nella richiesta http: ", this.headers)
+    return this.http.get(backendUrl, { headers: this.headers })
+  }
+
+  getPersonalTrainer(ptEmail: String){
+    this.setHeaders()
+    const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/ptrainers/search/'+ptEmail
+    console.log("header immesso nella richiesta http: ", this.headers)
+    return this.http.get(backendUrl, { headers: this.headers }) 
   }
 
   getGymMachines(){

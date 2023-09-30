@@ -15,19 +15,18 @@ import { Router } from '@angular/router'
 
 export class CreateCustomerComponent {
   customerForm: FormGroup
-  personalTrainer: PersonalTrainer = PERSONAL_TRAINERS[0]
 
   constructor(private fb: FormBuilder, private ptService: PersonalTrainerService, private _snackBar: MatSnackBar,
     private router: Router) {
     this.customerForm = this.fb.group({
       id: Math.floor(Math.random() * 100000),
-      personalTrainerId: this.personalTrainer.id,
+      personalTrainerId: localStorage.getItem('ptId'),
       name: '',
       surname: '',
       email: '',
       dateOfBirth: null,
       password: '',
-      personalTrainer: this.personalTrainer.name,
+      personalTrainer: localStorage.getItem('ptName'),
       workoutProgramList: null
     });
   }
@@ -50,7 +49,9 @@ export class CreateCustomerComponent {
   }
   
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action)
+    this._snackBar.open(message, action, {
+      duration: 5000
+    })
   }
 
   dateFormatter(date: Date){

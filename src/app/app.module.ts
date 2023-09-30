@@ -35,6 +35,14 @@ import { ListExerciseComponent } from './components/list-exercise/list-exercise.
 import { CreateGymMachineComponent } from './components/create-gym-machine/create-gym-machine.component';
 import { PtDashboardToolbarComponent } from './components/pt-dashboard-toolbar/pt-dashboard-toolbar.component';
 import { ListWprogramsComponent } from './components/list-wprograms/list-wprograms.component';
+import { SearchWprogramComponent } from './components/search-wprogram/search-wprogram.component';
+import { SearchCustomerComponent } from './components/search-customer/search-customer.component';
+import { LoginCustomerComponent } from './components/login-customer/login-customer.component';
+import { CustomerDashboardComponent } from './components/customer-dashboard/customer-dashboard.component';
+import { CustomerDashboardToolbarComponent } from './components/customer-dashboard-toolbar/customer-dashboard-toolbar.component';
+import { ListWprogramsCustomerComponent } from './components/list-wprograms-customer/list-wprograms-customer.component';
+import { RegisterCustomerComponent } from './components/register-customer/register-customer.component';
+import { ChangePtComponent } from './components/change-pt/change-pt.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +61,15 @@ import { ListWprogramsComponent } from './components/list-wprograms/list-wprogra
     ListExerciseComponent,
     CreateGymMachineComponent,
     PtDashboardToolbarComponent,
-    ListWprogramsComponent
+    ListWprogramsComponent,
+    SearchWprogramComponent,
+    SearchCustomerComponent,
+    LoginCustomerComponent,
+    CustomerDashboardComponent,
+    CustomerDashboardToolbarComponent,
+    ListWprogramsCustomerComponent,
+    RegisterCustomerComponent,
+    ChangePtComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +89,7 @@ import { ListWprogramsComponent } from './components/list-wprograms/list-wprogra
     MatSnackBarModule,
     MatCardModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

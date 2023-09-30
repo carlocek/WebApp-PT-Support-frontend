@@ -1,66 +1,89 @@
 <div class="main-container">  
-    <app-pt-dashboard-toolbar [personalTrainer]="personalTrainer" [isDashboard]="true"></app-pt-dashboard-toolbar> 
+    <app-pt-dashboard-toolbar [isDashboard]="true"></app-pt-dashboard-toolbar> 
 
-    <div class="section">
-        <p>Visualizza la lista dei tuoi clienti</p>
-        <div class="button-row">
-            <button mat-raised-button color="primary" routerLink="/pt/list-customers">Lista Clienti</button>
-        </div>
-    </div>
+    <div class="container">
+        <mat-card class="dashboard-card">
+            <mat-card-title>Gestisci gli Utenti</mat-card-title>
+            <div class="section">
+                <p>Visualizza gli utenti</p>
+                <div class="button-row">
+                    <button mat-raised-button color="primary" routerLink="/pt/list-customers">Lista Utenti</button>
+                </div>
+            </div>
+            
+            <div class="section">
+                <p>Crea un nuovo utente</p>
+                <div class="button-row">
+                    <button mat-raised-button color="primary" routerLink="/pt/create-customer">Aggiungi Utente</button>
+                </div>
+            </div>
+            <div class="section">
+                <p>Cerca un utente</p>
+                <div class="button-row">
+                    <button mat-raised-button color="primary" routerLink="/pt/search-customer">Cerca Utente</button>
+                </div>
+            </div>
+        </mat-card>
     
-    <div class="section">
-        <p>Crea un nuovo cliente</p>
-        <div class="button-row">
-            <button mat-raised-button color="primary" routerLink="/pt/create-customer">Aggiungi cliente</button>
-        </div>
-    </div>
+        <mat-card class="dashboard-card">
+            <mat-card-title>Gestisci i Macchinari</mat-card-title>
+            <div class="section">
+                <p>Visualizza i Macchinari</p>
+                <div class="button-row">
+                    <button mat-raised-button color="primary" routerLink="/pt/list-gym-machines">Lista Macchinari</button>
+                </div>
+            </div>
+            <div class="section">
+                <p>Inserisci un nuovo macchinario</p>
+                <div class="button-row">
+                    <button mat-raised-button color="primary" routerLink="/pt/create-gym-machine">Inserisci Macchinario</button>
+                </div>
+            </div>
+        </mat-card>
 
-    <div class="section">
-        <p>Inserisci un nuovo macchinario</p>
-        <div class="button-row">
-            <button mat-raised-button color="primary" routerLink="/pt/create-gym-machine">Inserisci Macchinario</button>
-        </div>
-    </div>
+        <mat-card class="dashboard-card">
+            <mat-card-title>Gestisci gli Esercizi</mat-card-title>
+            <div class="section">
+                <p>Visualizza gli Esercizi</p>
+                <div class="button-row">
+                    <button mat-raised-button color="primary" routerLink="/pt/list-exercises">Lista Esercizi</button>
+                </div>
+            </div>
+            <div class="section">
+                <p>Crea un nuovo esercizio</p>
+                <div class="button-row">
+                    <button mat-raised-button color="primary" routerLink="/pt/create-exercise">Aggiungi esercizio</button>
+                </div>
+            </div>
+            <div class="section">
+                <p>Cerca uno o più esercizi</p>
+                <div class="button-row">
+                    <button mat-raised-button color="primary" routerLink="/pt/search-exercise">Cerca Esercizi</button>
+                </div>
+            </div>
+        </mat-card>
 
-    <div class="section">
-        <p>Crea un nuovo esercizio</p>
-        <div class="button-row">
-            <button mat-raised-button color="primary" routerLink="/pt/create-exercise">Aggiungi esercizio</button>
-        </div>
-    </div>
+        <mat-card class="dashboard-card">
+            <mat-card-title>Gestisci le Schede di Allenamento</mat-card-title>
+            <div class="section">
+                <p>Visualizza le schede di Allenamento</p>
+                <div class="button-row">
+                    <button mat-raised-button color="primary" routerLink="/pt/list-workout-programs">Lista Schede di Allenamento</button>
+                </div>
+            </div>
+            <div class="section">
+                <p>Crea una nuova scheda di allenamento</p>
+                <div class="button-row">
+                    <button mat-raised-button color="primary" routerLink="/pt/create-wprogram">Aggiungi programma</button>
+                </div>
+            </div>
+            <div class="section">
+                <p>Cerca uno o più schede di allenamento</p>
+                <div class="button-row">
+                    <button mat-raised-button color="primary" routerLink="/pt/search-wprogram">Cerca Programma di Allenamento</button>
+                </div>
+            </div>
+        </mat-card>
 
-    <div class="section">
-        <p>Crea un nuovo programma di allenamento</p>
-        <div class="button-row">
-            <button mat-raised-button color="primary" routerLink="/pt/create-wprogram">Aggiungi programma</button>
-        </div>
-    </div>
-
-    <div class="section">
-        <p>Visualizza i Macchinari</p>
-        <div class="button-row">
-            <button mat-raised-button color="primary" routerLink="/pt/list-gym-machines">Lista Macchinari</button>
-        </div>
-    </div>
-
-    <div class="section">
-        <p>Visualizza gli Esercizi</p>
-        <div class="button-row">
-            <button mat-raised-button color="primary" routerLink="/pt/list-exercises">Lista Esercizi</button>
-        </div>
-    </div>
-
-    <div class="section">
-        <p>Cerca uno o più esercizi</p>
-        <div class="button-row">
-            <button mat-raised-button color="primary" routerLink="/pt/search-exercise">Cerca Esercizi</button>
-        </div>
-    </div>
-
-    <div class="section">
-        <p>Visualizza le schede di Allenamento</p>
-        <div class="button-row">
-            <button mat-raised-button color="primary" routerLink="/pt/list-workout-programs">Lista Schede di Allenamento</button>
-        </div>
     </div>
 </div>

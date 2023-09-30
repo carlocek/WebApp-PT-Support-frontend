@@ -1,9 +1,7 @@
 import { Component } from '@angular/core'
 import { FormBuilder, FormGroup} from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar'
-import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock'
 import { Exercise } from 'src/app/model/exercise'
-import { PersonalTrainer } from 'src/app/model/personal-trainer'
 import { PersonalTrainerService } from 'src/app/services/personal-trainer.service'
 import { Router } from '@angular/router'
 
@@ -14,7 +12,6 @@ import { Router } from '@angular/router'
 })
 export class CreateExerciseComponent {
   exerciseForm: FormGroup
-  personalTrainer: PersonalTrainer = PERSONAL_TRAINERS[0]
   machines: any
   diffValues: number[] = [1,2,3,4,5,6,7,8,9,10]
 
@@ -50,7 +47,9 @@ export class CreateExerciseComponent {
   }
   
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action)
+    this._snackBar.open(message, action, {
+      duration: 5000
+    })
   }
 
 }

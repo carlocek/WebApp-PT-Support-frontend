@@ -14,6 +14,13 @@ import { ListGymMachinesComponent } from './components/list-gym-machines/list-gy
 import { ListExerciseComponent } from './components/list-exercise/list-exercise.component';
 import { SearchExerciseComponent } from './components/search-exercise/search-exercise.component';
 import { ListWprogramsComponent } from './components/list-wprograms/list-wprograms.component';
+import { SearchWprogramComponent } from './components/search-wprogram/search-wprogram.component';
+import { SearchCustomerComponent } from './components/search-customer/search-customer.component';
+import { LoginCustomerComponent } from './components/login-customer/login-customer.component';
+import { CustomerDashboardComponent } from './components/customer-dashboard/customer-dashboard.component';
+import { ListWprogramsCustomerComponent } from './components/list-wprograms-customer/list-wprograms-customer.component';
+import { RegisterCustomerComponent } from './components/register-customer/register-customer.component';
+import { ChangePtComponent } from './components/change-pt/change-pt.component';
 
 const routes: Routes = [
   {path: 'pt/create-gym-machine', component: CreateGymMachineComponent},
@@ -30,6 +37,13 @@ const routes: Routes = [
   {path: 'pt/list-exercises', component: ListExerciseComponent},
   {path: 'pt/search-exercise', component: SearchExerciseComponent},
   {path: 'pt/list-workout-programs', component: ListWprogramsComponent},
+  {path: 'pt/search-wprogram', component: SearchWprogramComponent},
+  {path: 'pt/search-customer', component: SearchCustomerComponent},
+  {path: 'login-customer', component: LoginCustomerComponent},
+  {path: 'register-customer', component: RegisterCustomerComponent},
+  {path: 'customer', component: CustomerDashboardComponent},
+  {path: 'customer/list-workout-programs', component: ListWprogramsCustomerComponent},
+  {path: 'customer/change-pt', component: ChangePtComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];
 

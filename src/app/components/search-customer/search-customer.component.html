@@ -1,0 +1,48 @@
+<div class="main-container">
+    <app-pt-dashboard-toolbar [isDashboard]="false"></app-pt-dashboard-toolbar>
+      <form (ngSubmit)="onSubmit()" [formGroup]="cNameForm">
+          <p>
+              <br>
+              <font size="5">Scrivi il nome dell'utente da cercare</font><br />  
+              <br>         
+              <mat-form-field appearance="outline">
+                  <mat-label>Nome dell'utente</mat-label>
+                  <input matInput type="text" placeholder="Nome" formControlName="name">
+              </mat-form-field>
+          </p>
+  
+          <button type="submit" mat-raised-button color="primary" [disabled]="cNameForm.value.name == ''"> Cerca </button>
+      </form>
+      <br>
+      <div *ngIf="isSubmitted">
+          <div *ngIf="numElement > 0">
+              <div class="section">
+                  <p>Lista degli utenti trovati:</p>
+                  <mat-list class="mat-list" role="list" *ngFor="let c of customers">
+                    <mat-card class="customer-card" >
+                        <mat-card-header>
+                          <mat-card-subtitle>Informazioni del customer:</mat-card-subtitle>
+                          <mat-card-title>{{c.name}} {{c.surname}}</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                          <p>Email: {{c.email}}</p>
+                          <p>Data di Nascita: {{c.dateOfBirth}}</p>
+                          <div *ngIf="c.workoutProgramList.length == 0 && c.personalTrainer==null; else elseBlock">
+                            <p>Questo utente è disabilitato</p>
+                          </div>
+                          <ng-template #elseBlock>
+                            <p>Personal Trainer dell'utente: {{c.personalTrainer}}</p>
+                            <p>Lista workout:</p>
+                            {{c.workoutProgramList}}
+                          </ng-template>
+                        </mat-card-content>
+                      </mat-card>
+                        
+                  </mat-list>
+              </div>
+            </div>
+            <div *ngIf="numElement == 0">
+               <p>Nessun utente è stato trovato, riprova</p>
+            </div>
+      </div>
+  </div>

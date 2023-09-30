@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup} from '@angular/forms'
 import { GymMachine } from 'src/app/model/gym-machine';
 import { MatSnackBar } from '@angular/material/snack-bar'
-import { PersonalTrainer } from 'src/app/model/personal-trainer'
-import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock'
 import { PersonalTrainerService } from 'src/app/services/personal-trainer.service'
 import { Router } from '@angular/router'
 
@@ -14,7 +12,6 @@ import { Router } from '@angular/router'
 })
 export class CreateGymMachineComponent {
   gymMachineForm: FormGroup
-  personalTrainer: PersonalTrainer = PERSONAL_TRAINERS[0]
 
   constructor(private fb: FormBuilder, private ptService: PersonalTrainerService, private _snackBar: MatSnackBar,
     private router: Router) {
@@ -40,6 +37,8 @@ export class CreateGymMachineComponent {
   }
 
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action)
+    this._snackBar.open(message, action, {
+      duration: 5000
+    })
   }
 }

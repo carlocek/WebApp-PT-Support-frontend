@@ -15,5 +15,10 @@ export class RegisterService {
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/register'
     return this.http.post(backendUrl, body)
   }
+
+  registerCustomer(body: PersonalTrainer){
+    const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/customer/register'
+    return this.http.post(backendUrl, body)
+  }
 }
 

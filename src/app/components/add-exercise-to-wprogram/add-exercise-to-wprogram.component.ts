@@ -1,11 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock';
 import { Exercise } from 'src/app/model/exercise';
-import { PersonalTrainer } from 'src/app/model/personal-trainer';
-import { WorkoutProgram } from 'src/app/model/workout-program';
 import { PersonalTrainerService } from 'src/app/services/personal-trainer.service';
-import { CreateWorkoutProgramComponent } from '../create-wprogram/create-wprogram.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-exercise-to-wprogram',
@@ -13,13 +9,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./add-exercise-to-wprogram.component.css']
 })
 export class AddExerciseToWprogramComponent implements OnInit {
-  personalTrainer: PersonalTrainer = PERSONAL_TRAINERS[0]
   // @Input() wprogramId!: number;
   wprogramId: number = -1
 
   exercises: Exercise[] = []
 
-  constructor(private route: ActivatedRoute, private ptService: PersonalTrainerService){}
+
+  constructor(private route: ActivatedRoute, private ptService: PersonalTrainerService, private router: Router){
+  }
 
   ngOnInit() {
     const idParam = this.route.snapshot.paramMap.get('id');
@@ -40,6 +37,7 @@ export class AddExerciseToWprogramComponent implements OnInit {
       const response = this.ptService.addExerciseToWorkoutProgram(this.wprogramId, ex).subscribe()
       console.log(response)
     }
+    this.router.navigate(['pt'])
   }
 
 }

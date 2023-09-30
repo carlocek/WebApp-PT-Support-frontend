@@ -1,7 +1,6 @@
 
-
 <div class="main-container">
-    <app-pt-dashboard-toolbar [personalTrainer]="personalTrainer"  [isDashboard]="false"></app-pt-dashboard-toolbar>
+    <app-pt-dashboard-toolbar [isDashboard]="false"></app-pt-dashboard-toolbar>
     <p>Lista degli esercizi:</p>
     <div *ngFor="let exercise of exercises">
         <mat-checkbox [(ngModel)]="exercise.selected">{{ exercise.name }}</mat-checkbox>

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { PersonalTrainer } from 'src/app/model/personal-trainer';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,8 @@ import { PersonalTrainer } from 'src/app/model/personal-trainer';
 export class RegisterComponent {
   ptForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private registerService: RegisterService, private _snackBar: MatSnackBar) {
+  constructor(private fb: FormBuilder, private registerService: RegisterService, private _snackBar: MatSnackBar,
+    private router:Router) {
     this.ptForm = this.fb.group({
       id: Math.floor(Math.random() * 100000),
       name: '',
@@ -33,15 +35,17 @@ export class RegisterComponent {
     const response = this.registerService.register(pt).subscribe()
     console.log(response)
     if(response){
-      this.openSnackBar('Customer salvato', 'Ok')
-      this.ptForm.reset()
+      this.openSnackBar('Registrazione del Personal Trainer eseguita', 'Ok')
+      this.router.navigate(['home'])
     }
     else
-      this.openSnackBar('Errore nel salvataggio del customer', 'Ok')
+      this.openSnackBar('Errore nella registrazione del Personal Trainer', 'Ok')
   }
   
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action);
+    this._snackBar.open(message, action, {
+      duration: 5000
+    })
   }
 
   dateFormatter(date: Date){

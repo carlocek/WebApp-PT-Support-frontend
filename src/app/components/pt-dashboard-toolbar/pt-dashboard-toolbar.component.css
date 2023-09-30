@@ -1,12 +1,10 @@
-.main-container {
+  .main-container {
     padding: 20px;
   }
 
   .mat-toolbar-centered {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
   }
 
   .section {
@@ -31,6 +29,9 @@
   
   .button-row {
     display: flex;
+    position: absolute;
+    top: 4.5%; /* Posiziona il top al 50% dell'altezza del contenitore */
+    left: 90%; /* Posiziona a sinistra al 50% della larghezza del contenitore */    
   }
 
   .button-row .mat-mdc-button-base {
@@ -43,9 +44,4 @@
 
   .orizontal-centering {
     margin-left: 400px;
-  }
-
-  .customer-card {
-    max-width: 400px;
-    border: 1px solid black;
   }

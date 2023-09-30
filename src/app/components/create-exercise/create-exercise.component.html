@@ -1,5 +1,5 @@
 <div class="main-container">
-    <app-pt-dashboard-toolbar [personalTrainer]="personalTrainer" [isDashboard]="false"></app-pt-dashboard-toolbar>
+    <app-pt-dashboard-toolbar [isDashboard]="false"></app-pt-dashboard-toolbar>
     <form (ngSubmit)="onSubmit()" [formGroup]="exerciseForm">
         <p>
             <br>
@@ -17,7 +17,7 @@
         <p>
             <mat-form-field appearance="outline">
                 <mat-label>Livello di Difficoltà</mat-label>
-                <mat-select multiple formControlName="difficultyLevel">
+                <mat-select multiple formControlName="difficultyLevel" [multiple]="false">
                     <mat-option *ngFor="let value of diffValues" [value]="value">{{ value }}</mat-option>
                 </mat-select>
             </mat-form-field>
@@ -25,7 +25,7 @@
         <p>
             <mat-form-field appearance="outline">
                 <mat-label>Macchina Associata</mat-label>
-                <mat-select multiple formControlName="machineId">
+                <mat-select multiple formControlName="machineId" [multiple]="false">
                     <mat-option value="-1">Nessuna</mat-option>
                     <mat-option *ngFor="let machine of machines" [value]="machine.id">{{ machine.name }}</mat-option>
                 </mat-select>

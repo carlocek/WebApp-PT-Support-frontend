@@ -1,5 +1,5 @@
 <div class="main-container">
-  <app-pt-dashboard-toolbar [personalTrainer]="personalTrainer" [isDashboard]="false"></app-pt-dashboard-toolbar>
+  <app-pt-dashboard-toolbar [isDashboard]="false"></app-pt-dashboard-toolbar>
   <div class="section">
       <p>Visualizza la lista degli esercizi:</p>
       <mat-list class="mat-list" role="list" *ngFor="let ex of exercise">
@@ -11,7 +11,6 @@
                 <p>Difficoltà: {{ex.difficultyLevel}}</p>
                 <p>Descrizione: {{ex.description}}</p>
                 <p>Macchinario da usare: {{ex.machine}}</p>
-                <mat-divider></mat-divider>
               </mat-card-content>
             </mat-card>
             

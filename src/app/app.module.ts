@@ -35,6 +35,7 @@ import { ListExerciseComponent } from './components/list-exercise/list-exercise.
 import { CreateGymMachineComponent } from './components/create-gym-machine/create-gym-machine.component';
 import { PtDashboardToolbarComponent } from './components/pt-dashboard-toolbar/pt-dashboard-toolbar.component';
 import { ListWprogramsComponent } from './components/list-wprograms/list-wprograms.component';
+import { AssignWorkoutProgramToCustomerComponent } from './components/assign-wprogram-to-customer/assign-wprogram-to-customer.component';
 import { SearchWprogramComponent } from './components/search-wprogram/search-wprogram.component';
 import { SearchCustomerComponent } from './components/search-customer/search-customer.component';
 import { LoginCustomerComponent } from './components/login-customer/login-customer.component';
@@ -43,6 +44,7 @@ import { CustomerDashboardToolbarComponent } from './components/customer-dashboa
 import { ListWprogramsCustomerComponent } from './components/list-wprograms-customer/list-wprograms-customer.component';
 import { RegisterCustomerComponent } from './components/register-customer/register-customer.component';
 import { ChangePtComponent } from './components/change-pt/change-pt.component';
+
 
 @NgModule({
   declarations: [
@@ -62,6 +64,7 @@ import { ChangePtComponent } from './components/change-pt/change-pt.component';
     CreateGymMachineComponent,
     PtDashboardToolbarComponent,
     ListWprogramsComponent,
+    AssignWorkoutProgramToCustomerComponent
     SearchWprogramComponent,
     SearchCustomerComponent,
     LoginCustomerComponent,

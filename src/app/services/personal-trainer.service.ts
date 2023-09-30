@@ -1,9 +1,10 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Customer } from '../model/customer';
 import { Exercise } from '../model/exercise';
 import { WorkoutProgram } from '../model/workout-program';
 import { GymMachine } from '../model/gym-machine';
+import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,14 @@ export class PersonalTrainerService {
     return this.http.get(backendUrl, { headers: this.headers })
   }
 
+
+  assignWorkoutProgramToCustomer(custId: number, body: WorkoutProgram){
+    this.setHeaders()
+    const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/customers/'+custId+'/assign-wp'
+    console.log("header immesso nella richiesta http: ", this.headers)
+    console.log("sto inviando il body: ", body)
+    return this.http.put(backendUrl, body, { headers: this.headers })
+  }
   disableCutomers(customerId: number){
     this.setHeaders()
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/customers/disable/'+customerId
@@ -72,7 +81,7 @@ export class PersonalTrainerService {
     this.setHeaders()
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/wprograms/'+wpId+'/add-ex'
     console.log("header immesso nella richiesta http: ", this.headers)
-    return this.http.post(backendUrl, body, { headers: this.headers })
+    return this.http.put(backendUrl, body, { headers: this.headers }) //devo fare post sennò non funziona
   }
 
   insertWorkoutProgram(body: WorkoutProgram){
@@ -96,11 +105,11 @@ export class PersonalTrainerService {
     return this.http.get(backendUrl, { headers: this.headers }) 
   }
 
-  getGymMachines(){
+  getGymMachines(): Observable<HttpResponse<any>> {
     this.setHeaders()
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/gym-machines/list'
     console.log("header immesso nella richiesta http: ", this.headers)
-    return this.http.get(backendUrl, { headers: this.headers })
+    return this.http.get(backendUrl, { headers: this.headers, observe: 'response' })
   }
 
   getExercises(){
@@ -122,5 +131,11 @@ export class PersonalTrainerService {
       "Authorization": `Bearer ${localStorage.getItem("token")}`
     });
   }
+
+  // private handleError(error: HttpErrorResponse) {
+  //   // Gestisci l'errore qui, puoi loggarlo o fare altro
+  //   console.error('Errore nella richiesta:', error);
+  //   return throwError('Qualcosa è andato storto nella richiesta.');
+  // }
 
 }

@@ -42,7 +42,7 @@ export class CreateCustomerComponent {
     if(response){
       this.openSnackBar('Cliente salvato', 'Ok')
       this.customerForm.reset()
-      this.router.navigate(['pt'])
+      // this.router.navigate(['pt'])
     }
     else
       this.openSnackBar('Errore nel salvataggio del cliente', 'Ok')

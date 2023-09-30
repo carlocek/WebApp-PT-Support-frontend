@@ -1,0 +1,11 @@
+
+<div class="main-container">
+    <app-pt-dashboard-toolbar [personalTrainer]="personalTrainer"  [isDashboard]="false"></app-pt-dashboard-toolbar>
+    <p>Lista dei programmi di allenamento:</p>
+    <div *ngFor="let wprogram of wprograms">
+        <mat-checkbox [(ngModel)]="wprogram.selected">{{ wprogram.name }}</mat-checkbox>
+    </div>
+
+    <button mat-raised-button color="primary" (click)="assignSelectedWorkoutPrograms()">Aggiungi programmi</button>
+
+</div>

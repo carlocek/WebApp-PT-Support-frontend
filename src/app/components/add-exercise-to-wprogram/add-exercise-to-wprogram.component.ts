@@ -14,6 +14,7 @@ export class AddExerciseToWprogramComponent implements OnInit {
 
   exercises: Exercise[] = []
 
+
   constructor(private route: ActivatedRoute, private ptService: PersonalTrainerService, private router: Router){
   }
 

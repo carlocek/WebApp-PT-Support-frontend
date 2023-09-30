@@ -12,7 +12,7 @@ export class AppComponent {
   personalTrainer: PersonalTrainer
 
   constructor(){
-    let c: Customer[] = [new Customer(0, 0, '', '', '', new Date(), '', '')]
+    let c: Customer[] = [new Customer(0, 0, '', '', '', new Date(), '', '', [])]
     this.personalTrainer = new PersonalTrainer(0, '', '', '', new Date(), '', c)
   }
 

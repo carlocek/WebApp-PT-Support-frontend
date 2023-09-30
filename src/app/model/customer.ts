@@ -9,9 +9,9 @@ export class Customer {
   dateOfBirth: Date
   password: string
   personalTrainer : string
-  workoutProgramList: string
+  wpList: string[]
 
-  constructor(id: number, personalTrainerId:number, name: string, surname: string, email: string, dateOfBirth: Date, password: string, personalTrainer: string) {
+  constructor(id: number, personalTrainerId:number, name: string, surname: string, email: string, dateOfBirth: Date, password: string, personalTrainer: string, wpList: string[]) {
     this.id = id
     this.personalTrainerId = personalTrainerId
     this.name = name
@@ -20,6 +20,6 @@ export class Customer {
     this.dateOfBirth = dateOfBirth
     this.password = password
     this.personalTrainer = personalTrainer
-    this.workoutProgramList = ''
+    this.wpList = wpList
   }
 }

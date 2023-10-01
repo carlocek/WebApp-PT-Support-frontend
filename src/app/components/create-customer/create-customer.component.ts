@@ -42,8 +42,8 @@ export class CreateCustomerComponent {
     console.log(response)
     if(response){
       this.openSnackBar('Cliente salvato', 'Ok')
-      this.customerForm.reset()
-      // this.router.navigate(['pt'])
+      // this.customerForm.reset()
+      this.router.navigate(['pt/assign-wprogram-to-customer/'+this.customerId])
     }
     else
       this.openSnackBar('Errore nel salvataggio del cliente', 'Ok')

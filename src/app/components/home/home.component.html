@@ -11,7 +11,6 @@
                 <div class="error-message">
                   Il token è scaduto il {{ tokenExpirationDate | date: 'dd/MM/yyyy HH:mm:ss' }}. Effettua un nuovo accesso
                 </div>
-            
         </div>
       
         <!-- Sezione per Personal Trainer -->
@@ -23,10 +22,10 @@
                 <mat-list-item class="mat-list-item" role="listitem">Aggiungi un utente</mat-list-item>
             </mat-list>
             <div class="button-row">
-                <div *ngIf="!tokenExpired">
+                <div *ngIf="!tokenExpired && !tokenNotPresent">
                     <button mat-raised-button color="primary" routerLink="/pt">Accedi</button>
                 </div>
-                <div *ngIf="tokenExpired">
+                <div *ngIf="tokenExpired || tokenNotPresent">
                     <button mat-raised-button color="primary" routerLink="/login">Accedi</button>
                 </div>
                 <button mat-raised-button color="primary" routerLink="/register">Registrati</button>

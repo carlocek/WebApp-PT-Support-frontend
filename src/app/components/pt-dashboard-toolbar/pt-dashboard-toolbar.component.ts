@@ -27,6 +27,15 @@ export class PtDashboardToolbarComponent {
     }
   }
 
+  // ngOnInit(){
+  //   if(localStorage.getItem('ptName') == null){
+  //     this.takePtInfo()
+  //   }else{
+  //     this.name = localStorage.getItem('ptName')
+  //     this.surname = localStorage.getItem('ptSurname')
+  //   }
+  // }
+
   takePtInfo(){
     console.log('Prendo le info del pt dal backend')
     this.loggedEmail = localStorage.getItem('ptEmail')

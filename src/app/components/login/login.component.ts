@@ -43,6 +43,7 @@ export class LoginComponent {
         this.openSnackBar('Login non riuscito, riprova', 'Ok');
       }
     });
+    // this.router.navigate(['pt']);
   }
   
   openSnackBar(message: string, action: string) {

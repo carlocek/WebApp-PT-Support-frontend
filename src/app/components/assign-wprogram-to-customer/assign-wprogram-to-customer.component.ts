@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock';
 import { PersonalTrainer } from 'src/app/model/personal-trainer';
 import { WorkoutProgram } from 'src/app/model/workout-program';
@@ -15,7 +15,7 @@ export class AssignWorkoutProgramToCustomerComponent implements OnInit {
   customerId: number = -1
   wprograms: WorkoutProgram[] = []
 
-  constructor(private route: ActivatedRoute, private ptService: PersonalTrainerService){}
+  constructor(private route: ActivatedRoute, private ptService: PersonalTrainerService, private router: Router){}
 
   ngOnInit() {
     const idParam = this.route.snapshot.paramMap.get('id');
@@ -44,6 +44,7 @@ export class AssignWorkoutProgramToCustomerComponent implements OnInit {
       )
       console.log(response)
     }
+    this.router.navigate(['pt'])
   }
 
 }

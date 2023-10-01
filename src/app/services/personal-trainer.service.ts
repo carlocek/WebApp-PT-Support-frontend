@@ -81,7 +81,7 @@ export class PersonalTrainerService {
     this.setHeaders()
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/wprograms/'+wpId+'/add-ex'
     console.log("header immesso nella richiesta http: ", this.headers)
-    return this.http.put(backendUrl, body, { headers: this.headers }) //devo fare post sennò non funziona
+    return this.http.put(backendUrl, body, { headers: this.headers }) 
   }
 
   insertWorkoutProgram(body: WorkoutProgram){
@@ -105,11 +105,11 @@ export class PersonalTrainerService {
     return this.http.get(backendUrl, { headers: this.headers }) 
   }
 
-  getGymMachines(): Observable<HttpResponse<any>> {
+  getGymMachines(){
     this.setHeaders()
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/gym-machines/list'
     console.log("header immesso nella richiesta http: ", this.headers)
-    return this.http.get(backendUrl, { headers: this.headers, observe: 'response' })
+    return this.http.get(backendUrl, { headers: this.headers })
   }
 
   getExercises(){
@@ -124,6 +124,13 @@ export class PersonalTrainerService {
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/wprograms/list'
     console.log("header immesso nella richiesta http: ", this.headers)
     return this.http.get(backendUrl, { headers: this.headers })
+  }
+
+  ping(): Observable<HttpResponse<any>> {
+    this.setHeaders()
+    const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/ping'
+    console.log("header immesso nella richiesta http: ", this.headers)
+    return this.http.get(backendUrl, { headers: this.headers, observe: 'response' })
   }
 
   setHeaders(){

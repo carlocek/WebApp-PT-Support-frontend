@@ -12,9 +12,10 @@
                   Il token è scaduto il {{ tokenExpirationDate | date: 'dd/MM/yyyy HH:mm:ss' }}. Effettua un nuovo accesso
                 </div>
         </div>
-      
+        
+
         <!-- Sezione per Personal Trainer -->
-        <div class="section">
+        <div *ngIf="!customerLogged" class="section">
             <h2>Sei un Personal Trainer?</h2>
             <mat-list class="mat-list" role="list">
                 <mat-list-item class="mat-list-item" role="listitem">Crea e gestisci programmi di allenamento personalizzati</mat-list-item>
@@ -22,7 +23,7 @@
                 <mat-list-item class="mat-list-item" role="listitem">Aggiungi un utente</mat-list-item>
             </mat-list>
             <div class="button-row">
-                <div *ngIf="!tokenExpired && !tokenNotPresent">
+                <div *ngIf="!customerLogged && !tokenExpired && !tokenNotPresent">
                     <button mat-raised-button color="primary" routerLink="/pt">Accedi</button>
                 </div>
                 <div *ngIf="tokenExpired || tokenNotPresent">
@@ -33,14 +34,19 @@
         </div>
           
           <!-- Sezione per Customer -->
-        <div class="section">
+        <div *ngIf="!ptLogged" class="section">
             <h2>Sei un Utente?</h2>
             <mat-list class="mat-list" role="list">
                 <mat-list-item class="mat-list-item" role="listitem">Accedi ai tuoi programmi di allenamento personalizzati</mat-list-item>
                 <mat-list-item class="mat-list-item" role="listitem">Registra e monitora i tuoi allenamenti</mat-list-item>
             </mat-list>
             <div class="button-row">
-                <button mat-raised-button color="primary" routerLink="/login-customer">Accedi</button>
+                <div *ngIf="!ptLogged && !tokenExpired && !tokenNotPresent">
+                    <button mat-raised-button color="primary" routerLink="/customer">Accedi</button>
+                </div>
+                <div *ngIf="tokenExpired || tokenNotPresent">
+                    <button mat-raised-button color="primary" routerLink="/login-customer">Accedi</button>
+                </div>
                 <button mat-raised-button color="primary" routerLink="/register-customer">Registrati</button>
             </div>
         </div> 

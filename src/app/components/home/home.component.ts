@@ -12,6 +12,9 @@ export class HomeComponent implements OnInit{
   tokenNotPresent: boolean = true
   tokenExpirationDate: Date | null = null;
 
+  customerLogged: boolean = !(localStorage.getItem("customerEmail") == null)
+  ptLogged: boolean = !(localStorage.getItem("ptEmail") == null)
+
   constructor(private ptService: PersonalTrainerService) {}
 
   ngOnInit() {

@@ -22,6 +22,9 @@ import { CustomerDashboardComponent } from './components/customer-dashboard/cust
 import { ListWprogramsCustomerComponent } from './components/list-wprograms-customer/list-wprograms-customer.component';
 import { RegisterCustomerComponent } from './components/register-customer/register-customer.component';
 import { ChangePtComponent } from './components/change-pt/change-pt.component';
+import { ListExercisesWprogramComponent } from './components/list-exercises-wprogram/list-exercises-wprogram.component';
+import { ExercisesWorkoutSessionComponent } from './components/exercises-workout-session/exercises-workout-session.component';
+import { EndWsessionComponent } from './components/end-wsession/end-wsession.component';
 
 
 const routes: Routes = [
@@ -47,6 +50,9 @@ const routes: Routes = [
   {path: 'customer', component: CustomerDashboardComponent},
   {path: 'customer/list-workout-programs', component: ListWprogramsCustomerComponent},
   {path: 'customer/change-pt', component: ChangePtComponent},
+  {path: 'customer/list-exercise-wprogram/:id/:name', component: ListExercisesWprogramComponent},
+  {path: 'customer/workout-session/:id/:name/:wsId', component:ExercisesWorkoutSessionComponent},
+  {path: 'customer/end-wsession/:wsId', component:EndWsessionComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];
 

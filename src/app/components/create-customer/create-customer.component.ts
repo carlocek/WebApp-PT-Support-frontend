@@ -2,8 +2,6 @@ import { Component } from '@angular/core'
 import { FormBuilder, FormGroup} from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { Customer } from 'src/app/model/customer'
-import { PersonalTrainer } from 'src/app/model/personal-trainer'
-import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock'
 import { PersonalTrainerService } from 'src/app/services/personal-trainer.service'
 import { Router } from '@angular/router'
 

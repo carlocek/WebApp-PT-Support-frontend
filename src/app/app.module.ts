@@ -44,6 +44,9 @@ import { CustomerDashboardToolbarComponent } from './components/customer-dashboa
 import { ListWprogramsCustomerComponent } from './components/list-wprograms-customer/list-wprograms-customer.component';
 import { RegisterCustomerComponent } from './components/register-customer/register-customer.component';
 import { ChangePtComponent } from './components/change-pt/change-pt.component';
+import { ListExercisesWprogramComponent } from './components/list-exercises-wprogram/list-exercises-wprogram.component';
+import { ExercisesWorkoutSessionComponent } from './components/exercises-workout-session/exercises-workout-session.component';
+import { EndWsessionComponent } from './components/end-wsession/end-wsession.component';
 
 
 @NgModule({
@@ -73,6 +76,9 @@ import { ChangePtComponent } from './components/change-pt/change-pt.component';
     ListWprogramsCustomerComponent,
     RegisterCustomerComponent,
     ChangePtComponent,
+    ListExercisesWprogramComponent,
+    ExercisesWorkoutSessionComponent,
+    EndWsessionComponent,
   ],
   imports: [
     BrowserModule,

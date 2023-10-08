@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PERSONAL_TRAINERS } from 'src/app/mocks/personal-trainer-mock';
-import { PersonalTrainer } from 'src/app/model/personal-trainer';
 import { WorkoutProgram } from 'src/app/model/workout-program';
 import { PersonalTrainerService } from 'src/app/services/personal-trainer.service';
 
@@ -11,11 +9,11 @@ import { PersonalTrainerService } from 'src/app/services/personal-trainer.servic
   styleUrls: ['./assign-wprogram-to-customer.component.css']
 })
 export class AssignWorkoutProgramToCustomerComponent implements OnInit {
-  personalTrainer: PersonalTrainer = PERSONAL_TRAINERS[0]
   customerId: number = -1
   wprograms: WorkoutProgram[] = []
 
-  constructor(private route: ActivatedRoute, private ptService: PersonalTrainerService, private router: Router){}
+  constructor(private route: ActivatedRoute, private ptService: PersonalTrainerService,
+    private router: Router){}
 
   ngOnInit() {
     const idParam = this.route.snapshot.paramMap.get('id');

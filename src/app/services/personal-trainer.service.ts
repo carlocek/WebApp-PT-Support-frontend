@@ -42,6 +42,7 @@ export class PersonalTrainerService {
     console.log("sto inviando il body: ", body)
     return this.http.put(backendUrl, body, { headers: this.headers })
   }
+  
   disableCutomers(customerId: number){
     this.setHeaders()
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/customers/disable/'+customerId
@@ -81,8 +82,8 @@ export class PersonalTrainerService {
     this.setHeaders()
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/wprograms/'+wpId+'/add-ex'
     console.log("header immesso nella richiesta http: ", this.headers)
-    return this.http.put(backendUrl, body, { headers: this.headers }) 
-  }
+    return this.http.put(backendUrl, body, { headers: this.headers })
+    }
 
   insertWorkoutProgram(body: WorkoutProgram){
     this.setHeaders()
@@ -125,7 +126,7 @@ export class PersonalTrainerService {
     console.log("header immesso nella richiesta http: ", this.headers)
     return this.http.get(backendUrl, { headers: this.headers })
   }
-
+  
   ping(): Observable<HttpResponse<any>> {
     this.setHeaders()
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/ping'

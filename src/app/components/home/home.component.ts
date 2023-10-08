@@ -54,6 +54,7 @@ export class HomeComponent implements OnInit{
           this.tokenNotPresent = true
           this.tokenExpired = false
         }
+        localStorage.clear()
       }
     });
   }

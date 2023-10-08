@@ -34,6 +34,13 @@ export class CustomerService {
     return this.http.get(backendUrl, { headers: this.headers })
   }
 
+  getExerciseOfWorkoutProgram(wpId: string){
+    this.setHeaders
+    const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/wprogram/search-exercise/'+wpId
+    console.log("header immesso nella richiesta httpx: ", this.headers)
+    return this.http.get(backendUrl, { headers: this.headers })
+  }
+
   changePersonalTrainer(cId:string|null, ptId:string){
     let body: string
     body = "cId:"+cId+"; "+"ptId:"+ptId

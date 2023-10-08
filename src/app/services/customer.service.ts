@@ -48,7 +48,7 @@ export class CustomerService {
     this.setHeaders()
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/customers/change-pt/'+cId+'/'+ptId
     console.log("header immesso nella richiesta http: ", this.headers)
-    return this.http.post(backendUrl, body, { headers: this.headers })
+    return this.http.put(backendUrl, body, { headers: this.headers })
   }
 
   setHeaders(){

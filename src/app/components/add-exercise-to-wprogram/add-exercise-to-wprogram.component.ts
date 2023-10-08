@@ -29,15 +29,27 @@ export class AddExerciseToWprogramComponent implements OnInit {
     });
   }
 
-  addSelectedExercises() {
+  async addSelectedExercises() {
     const selectedExercises = this.exercises.filter(exercise => exercise.selected);
     for(let ex of selectedExercises){
       console.log("sto aggiornando il wprogram con id: ", this.wprogramId)
       console.log("sto aggiungendo l'esercizio: ", ex)
-      const response = this.ptService.addExerciseToWorkoutProgram(this.wprogramId, ex).subscribe()
-      console.log(response)
+      const response = this.ptService.addExerciseToWorkoutProgram(this.wprogramId, ex).subscribe({
+        next: (response: any) => {
+          console.log(response)
+        },
+        error: (error) => {
+          console.log(error)
+        }
+      })
+      await this.delay(1000);
     }
     this.router.navigate(['pt'])
   }
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+}
+
 
 }

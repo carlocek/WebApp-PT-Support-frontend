@@ -23,33 +23,26 @@ export class AddExerciseToWprogramComponent implements OnInit {
     if (idParam) {
       this.wprogramId = +idParam;
     }
-    this.ptService.getExercises().subscribe((data: any) => {
+
+    this.ptService.getExercisesNotInWorkoutProgram(this.wprogramId).subscribe((data: any) => {
       // Inizializza l'array exercises con il campo selected impostato su false per tutti gli esercizi
       this.exercises = data.map((exercise: Exercise) => ({ ...exercise, selected: false }));
+      console.log(this.exercises)
     });
   }
 
   async addSelectedExercises() {
     const selectedExercises = this.exercises.filter(exercise => exercise.selected);
-    for(let ex of selectedExercises){
-      console.log("sto aggiornando il wprogram con id: ", this.wprogramId)
-      console.log("sto aggiungendo l'esercizio: ", ex)
-      const response = this.ptService.addExerciseToWorkoutProgram(this.wprogramId, ex).subscribe({
-        next: (response: any) => {
-          console.log(response)
-        },
-        error: (error) => {
-          console.log(error)
-        }
-      })
-      await this.delay(1000);
-    }
+    const response = this.ptService.addExerciseToWorkoutProgram(this.wprogramId, selectedExercises).subscribe({
+      next: (response: any) => {
+        console.log(response)
+      },
+      error: (error) => {
+        console.log(error)
+      }
+    })
+    
     this.router.navigate(['pt'])
   }
-
-  delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
-}
-
 
 }

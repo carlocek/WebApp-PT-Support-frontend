@@ -34,6 +34,8 @@ export class HomeComponent implements OnInit{
       
       },
       error: (error) => {
+        this.customerLogged = false
+        this.ptLogged = false
         console.error("Errore durante la richiesta al backend con status: ", error.status);
         // console.log("tokenExpired è stato settato di conseguenza a: ", this.tokenExpired)
 
@@ -54,7 +56,7 @@ export class HomeComponent implements OnInit{
           this.tokenNotPresent = true
           this.tokenExpired = false
         }
-        localStorage.clear()
+        
       }
     });
   }

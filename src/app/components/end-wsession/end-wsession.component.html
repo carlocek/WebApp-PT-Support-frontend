@@ -1,7 +1,26 @@
 <div class="main-container">
     <app-customer-dashboard-toolbar [isDashboard]="false"></app-customer-dashboard-toolbar>
-    <div class="section">
-        <p>{{wSession}}</p>
+    <div *ngIf="isLoading">
+        <font size = "3">Caricamento....</font>
+    </div>
+    <div *ngIf="!isLoading">
+        <div class="section">
+            <font size="5">Complimenti! Hai terminato l'allenamento. Ecco un riepilogo della tua sessione</font><br> 
+            <font size = "4">{{wSession.wpName}}</font>
+            <font size = "4">Inizio: {{wSession.startTime}}</font>
+            <font size = "4">Fine: {{wSession.endTime}}</font>
+            <br>
+            <mat-list class="mat-list" role="list" *ngFor="let data of wSession.sessionData">
+                <font size = "3">Esercizio:{{data.exName}}</font>
+                <font size = "3">Carico:{{data.load}}</font>
+                <font size = "3">Ripetizioni:{{data.repetitions}}</font>
+                <font size = "3">Tempo:{{data.timestamp}}</font>
+                <br>
+            </mat-list>
+            <div class="button-row">
+                <button mat-raised-button color="primary" routerLink="/customer/"> Torna alla tua pagina principale </button>
+            </div>
+        </div>
     </div>
     
   </div>

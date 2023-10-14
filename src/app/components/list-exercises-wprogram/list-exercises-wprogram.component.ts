@@ -18,7 +18,12 @@ export class ListExercisesWprogramComponent {
     private dexieService: DexieService){
     this.wpId = this.route.snapshot.paramMap.get('id')
     this.wpName = this.route.snapshot.paramMap.get('name')
-    this.wsessionId = dexieService.inizializeSession().id
+    let customerIdString = localStorage.getItem('customerId')
+    let customerId = 0
+    if(customerIdString){
+      customerId = parseInt(customerIdString, 10)
+    }
+    this.wsessionId = dexieService.inizializeSession(this.wpName, customerId).id
     if (this.wpId) {
       this.customerService.getExerciseOfWorkoutProgram(this.wpId).subscribe((data: any) => {
         this.exercises = Object.keys(data).map((key)=>{return data[key]})

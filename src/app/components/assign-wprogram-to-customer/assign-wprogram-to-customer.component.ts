@@ -20,7 +20,7 @@ export class AssignWorkoutProgramToCustomerComponent implements OnInit {
     if (idParam) {
       this.customerId = +idParam;
     }
-    this.ptService.getWorkoutPrograms().subscribe((data: any) => {
+    this.ptService.getWorkoutProgramsNotOfCustomer(this.customerId).subscribe((data: any) => {
       // Inizializza l'array exercises con il campo selected impostato su false per tutti gli esercizi
       this.wprograms = data.map((wprogram: WorkoutProgram) => ({ ...wprogram, selected: false }));
     });

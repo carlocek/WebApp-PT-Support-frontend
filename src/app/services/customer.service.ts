@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
+import { WorkoutSession } from './dexie-service.service';
+import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +52,14 @@ export class CustomerService {
     console.log("header immesso nella richiesta http: ", this.headers)
     return this.http.put(backendUrl, body, { headers: this.headers })
   }
+
+  saveWorkoutSession(body: WorkoutSession): Observable<HttpResponse<any>> {
+    this.setHeaders()
+    const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/sessions/save'
+    console.log("header immesso nella richiesta http: ", this.headers)
+    return this.http.post(backendUrl, body, { headers: this.headers, observe: 'response' })
+  }
+
 
   setHeaders(){
     this.headers = new HttpHeaders({

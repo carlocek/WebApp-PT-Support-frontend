@@ -18,6 +18,7 @@ export class ExercisesWorkoutSessionComponent {
   i: number = 0
   sessionDataForm : FormGroup
   workoutSessionId : number = -1
+  isLoading = true
 
   constructor(private route: ActivatedRoute, private customerService:CustomerService, private fb: FormBuilder,
     private dexieService: DexieService, private router: Router){
@@ -34,18 +35,30 @@ export class ExercisesWorkoutSessionComponent {
       });
     }
     this.sessionDataForm = this.fb.group({
-      machineId:'',
-      load:'',
-      repetition:'',
-      timeStamp:''
+      repetition:''
     })
   }
 
   async onSubmit(){
     await this.dexieService.getWorkoutSession(this.workoutSessionId).then((ws) => {
-        this.dexieService.addSessionData(ws, this.activeExercise.machineId, 
-        Math.floor(Math.random() * 100), Math.floor(Math.random() * 4), 100)
+      const series: number = Math.random() * 3 + 1
+      const weight: number = Math.floor(Math.random() * 100) + 1
+      const repetitions: number = Math.floor(Math.random() * 3) + 1
+      const date = new Date()
+      const timestamp = date.toISOString()
+
+      let i: number
+      for(i=0; i<series; i++){
+        if(this.activeExercise.machine == 'Nessuno'){
+          this.dexieService.addSessionData(ws, this.activeExercise.name, this.activeExercise.machineId, 
+            0, parseInt(this.sessionDataForm.value.repetition, 10), timestamp)
+        }else{
+          this.dexieService.addSessionData(ws, this.activeExercise.name, this.activeExercise.machineId, 
+            weight, repetitions, timestamp)
+        }
+      }
     })
+    this.isLoading = true
     this.nextExercise()
   }
 
@@ -53,9 +66,31 @@ export class ExercisesWorkoutSessionComponent {
     this.activeExercise = this.exercises[this.i]
     this.i++
     console.log(this.activeExercise)
+    this.isLoading = false
   }
 
-  endWsession(){
+  async endWsession(){
+    await this.dexieService.getWorkoutSession(this.workoutSessionId).then((ws) => {
+      const series: number = Math.random() * 3 + 1
+      const weight: number = Math.floor(Math.random() * 100) + 1
+      const repetitions: number = Math.floor(Math.random() * 3) + 1
+      let i: number
+      const date = new Date();
+      const timestamp = date.toISOString();
+
+      for(i=0; i<series; i++){
+        if(this.activeExercise.machine == 'Nessuno'){
+          this.dexieService.addSessionData(ws, this.activeExercise.name, this.activeExercise.machineId, 
+            0, parseInt(this.sessionDataForm.value.repetition, 10), timestamp)
+        }else{
+          this.dexieService.addSessionData(ws, this.activeExercise.name, this.activeExercise.machineId, 
+            weight, repetitions, timestamp)
+        }
+      }
+
+    })
+    
     this.router.navigate(['customer/end-wsession/'+this.workoutSessionId])
   }
+
 }

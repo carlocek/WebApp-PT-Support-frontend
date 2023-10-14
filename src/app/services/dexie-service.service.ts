@@ -3,16 +3,19 @@ import Dexie from 'dexie';
 
 export interface WorkoutSession {
   id?: number 
-  startTime: number
-  endTime: number
+  wpName:string | null
+  customerId: number
+  startTime: string
+  endTime: string
   sessionData: SessionData[]
 }
 
 export interface SessionData {
+  exName: string
   machineId:number
   load:number 
   repetitions:number
-  timestamp:number
+  timestamp:string
 }
 
 @Injectable({
@@ -21,11 +24,13 @@ export interface SessionData {
 
 export class DexieService extends Dexie {
   wsessions!: Dexie.Table<WorkoutSession, number>
+  db : any
 
   constructor() {
     super('WorkoutSessionsDB'); // Specifica il nome del database
+    this.db = this
     this.version(1).stores({
-      // Definisci gli store di oggetti e le chiavi primarie
+      // Definisce gli store di oggetti e le chiavi primarie
       wsessions: '++id',
     });
 
@@ -33,24 +38,36 @@ export class DexieService extends Dexie {
     this.wsessions = this.table('wsessions');
   }
 
-  // Definisci metodi per eseguire operazioni su IndexedDB
-  inizializeSession(){
+  inizializeSession(wpName:string | null, customerId: number){
     const id: number = Math.floor(Math.random() * 100000)
-    const startTime: number = 18
-    const endTime: number = 19
+    const date = new Date()
+    const startTime = date.toISOString()
+    const endTime: string = ""
     let sessionData : SessionData[] = []
-    let wsession: WorkoutSession = {id, startTime, endTime, sessionData}
+    let wsession: WorkoutSession = {id, customerId, wpName, startTime, endTime, sessionData}
     this.wsessions.add(wsession)
     return wsession
+  }
+
+  async endSession(wSession : WorkoutSession | undefined){
+    if(wSession){
+      const date = new Date()
+      const endTime = date.toISOString()
+      wSession.endTime = endTime
+      if(wSession.id)
+        await this.wsessions.update(wSession.id, { endTime: endTime })
+
+    }
+    return wSession
   }
 
   getWorkoutSession(wSessionId : number){
     return this.wsessions.get(wSessionId)
   }
 
-  addSessionData(wSession : WorkoutSession | undefined, machineId:number, load:number , repetitions:number,
-    timestamp:number){
-    const data : SessionData = {machineId, load, repetitions, timestamp}
+  addSessionData(wSession : WorkoutSession | undefined, exName:string, machineId:number, load:number , 
+    repetitions:number, timestamp:string){
+    const data : SessionData = {machineId, exName, load, repetitions, timestamp}
     if(wSession){
      wSession.sessionData.push(data)
      this.wsessions.update(wSession, wSession)

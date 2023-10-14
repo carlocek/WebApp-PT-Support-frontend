@@ -20,7 +20,7 @@ export class ListCustomerComponent {
   }
 
   disableCustomer(customerId: number){
-    this.ptService.disableCutomers(customerId).subscribe((data: any) =>{
+    this.ptService.disableCustomers(customerId).subscribe((data: any) =>{
       console.log("Token preso dal local storage: ", localStorage.getItem('token'))
     })
     this.router.navigate(['pt'])

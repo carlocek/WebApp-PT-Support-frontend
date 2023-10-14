@@ -43,7 +43,7 @@ export class PersonalTrainerService {
     return this.http.put(backendUrl, body, { headers: this.headers })
   }
   
-  disableCutomers(customerId: number){
+  disableCustomers(customerId: number){
     this.setHeaders()
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/customers/disable/'+customerId
     console.log("header immesso nella richiesta http: ", this.headers)
@@ -78,7 +78,7 @@ export class PersonalTrainerService {
     return this.http.get(backendUrl, { headers: this.headers })
   }
 
-  addExerciseToWorkoutProgram(wpId: number, body: Exercise){
+  addExerciseToWorkoutProgram(wpId: number, body: Exercise[]){
     this.setHeaders()
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/wprograms/'+wpId+'/add-ex'
     console.log("header immesso nella richiesta http: ", this.headers)
@@ -95,6 +95,20 @@ export class PersonalTrainerService {
   searchWorkoutProgram(wpName: string){
     this.setHeaders()
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/wprograms/search/'+wpName
+    console.log("header immesso nella richiesta http: ", this.headers)
+    return this.http.get(backendUrl, { headers: this.headers })
+  }
+
+  getExercisesOfWorkoutProgram(wpId: number){
+    this.setHeaders
+    const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/wprogram/search-exercise/'+wpId
+    console.log("header immesso nella richiesta http: ", this.headers)
+    return this.http.get(backendUrl, { headers: this.headers })
+  }
+
+  getExercisesNotInWorkoutProgram(wpId:number){
+    this.setHeaders
+    const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/exercises/list-not-wp/'+wpId
     console.log("header immesso nella richiesta http: ", this.headers)
     return this.http.get(backendUrl, { headers: this.headers })
   }
@@ -123,6 +137,13 @@ export class PersonalTrainerService {
   getWorkoutPrograms(){
     this.setHeaders()
     const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/wprograms/list'
+    console.log("header immesso nella richiesta http: ", this.headers)
+    return this.http.get(backendUrl, { headers: this.headers })
+  }
+
+  getWorkoutProgramsNotOfCustomer(cId: number){
+    this.setHeaders()
+    const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/wprograms/list-not-customer/'+cId
     console.log("header immesso nella richiesta http: ", this.headers)
     return this.http.get(backendUrl, { headers: this.headers })
   }

@@ -1,36 +1,41 @@
 <div class="main-container">
     <app-customer-dashboard-toolbar [isDashboard]="false"></app-customer-dashboard-toolbar>
-    <form (ngSubmit)="onSubmit()" [formGroup]="sessionDataForm">
-        <div class="section">
-            <font size="5">{{wpName}} - Esercizio n°{{this.i}}</font><br> 
-                <mat-card class="customer-card" >
-                <mat-card-header>
-                    <mat-card-title>{{activeExercise.name}}</mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                    <p>Difficoltà: {{activeExercise.difficultyLevel}}</p>
-                    <p>Descrizione: {{activeExercise.description}}</p>
-                    <p>Macchinario da usare: {{activeExercise.machine}}</p>
-                    <div *ngIf="activeExercise.machine == 'Nessuno'">
-                        <br>
-                        <mat-form-field appearance="outline">
-                            <mat-label>Ripetizioni Eseguite</mat-label>
-                            <input matInput type="text" placeholder="Reps" formControlName="repetition">
-                        </mat-form-field>
+    <div *ngIf="isLoading">
+        <font size="3">Caricamento....</font>
+    </div>
+    <div *ngIf="!isLoading">
+        <form (ngSubmit)="onSubmit()" [formGroup]="sessionDataForm">
+            <div class="section">
+                <font size="5">{{wpName}} - Esercizio n°{{this.i}}</font><br> 
+                    <mat-card class="customer-card" >
+                    <mat-card-header>
+                        <mat-card-title>{{activeExercise.name}}</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>Difficoltà: {{activeExercise.difficultyLevel}}</p>
+                        <p>Descrizione: {{activeExercise.description}}</p>
+                        <p>Macchinario da usare: {{activeExercise.machine}}</p>
+                        <div *ngIf="activeExercise.machine == 'Nessuno'">
+                            <br>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Ripetizioni Eseguite</mat-label>
+                                <input matInput type="text" placeholder="Reps" formControlName="repetition">
+                            </mat-form-field>
+                        </div>
+                    </mat-card-content>
+                    </mat-card>
+                    
+                <div *ngIf="i < nOfExercises; else elseBlock">
+                    <div class="button-row">
+                        <button type="submit" mat-raised-button color="primary"> Prossimo Esercizio </button>
                     </div>
-                </mat-card-content>
-                </mat-card>
-                
-            <div *ngIf="i < nOfExercises; else elseBlock">
-                <div class="button-row">
-                    <button type="submit" mat-raised-button color="primary"> Prossimo Esercizio </button>
                 </div>
+                <ng-template #elseBlock>
+                    <div class="button-row">
+                        <button type="submit" mat-raised-button color="primary" (click)="endWsession()"> Concludi Allenamento </button>
+                    </div>
+                </ng-template>
             </div>
-            <ng-template #elseBlock>
-                <div class="button-row">
-                    <button type="submit" mat-raised-button color="primary" (click)="endWsession()"> Concludi Allenamento </button>
-                </div>
-            </ng-template>
-        </div>
-    </form>
+        </form>
+    </div>
   </div>

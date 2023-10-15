@@ -31,7 +31,7 @@ export class EndWsessionComponent implements OnInit {
       this.wSession = ws
     })
     this.customerService.saveWorkoutSession(this.wSession).subscribe()
-    // sendWithRetry
+    this.sendWithRetry(10, 2000)
   }
 
   sendWithRetry(retryCount: number, retryDelay: number) {

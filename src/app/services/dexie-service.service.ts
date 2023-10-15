@@ -3,7 +3,7 @@ import Dexie from 'dexie';
 
 export interface WorkoutSession {
   id?: number 
-  wpName:string | null
+  programName:string | null
   customerId: number
   startTime: string
   endTime: string
@@ -11,7 +11,7 @@ export interface WorkoutSession {
 }
 
 export interface SessionData {
-  exName: string
+  exerciseName: string
   machineId:number
   load:number 
   repetitions:number
@@ -38,13 +38,13 @@ export class DexieService extends Dexie {
     this.wsessions = this.table('wsessions');
   }
 
-  inizializeSession(wpName:string | null, customerId: number){
+  inizializeSession(programName:string | null, customerId: number){
     const id: number = Math.floor(Math.random() * 100000)
     const date = new Date()
     const startTime = date.toISOString()
     const endTime: string = ""
     let sessionData : SessionData[] = []
-    let wsession: WorkoutSession = {id, customerId, wpName, startTime, endTime, sessionData}
+    let wsession: WorkoutSession = {id, customerId, programName, startTime, endTime, sessionData}
     this.wsessions.add(wsession)
     return wsession
   }
@@ -65,9 +65,9 @@ export class DexieService extends Dexie {
     return this.wsessions.get(wSessionId)
   }
 
-  addSessionData(wSession : WorkoutSession | undefined, exName:string, machineId:number, load:number , 
+  addSessionData(wSession : WorkoutSession | undefined, exerciseName:string, machineId:number, load:number , 
     repetitions:number, timestamp:string){
-    const data : SessionData = {machineId, exName, load, repetitions, timestamp}
+    const data : SessionData = {machineId, exerciseName, load, repetitions, timestamp}
     if(wSession){
      wSession.sessionData.push(data)
      this.wsessions.update(wSession, wSession)

@@ -47,6 +47,8 @@ import { ChangePtComponent } from './components/change-pt/change-pt.component';
 import { ListExercisesWprogramComponent } from './components/list-exercises-wprogram/list-exercises-wprogram.component';
 import { ExercisesWorkoutSessionComponent } from './components/exercises-workout-session/exercises-workout-session.component';
 import { EndWsessionComponent } from './components/end-wsession/end-wsession.component';
+import { ViewMachineStatisticsComponent } from './components/view-machine-statistics/view-machine-statistics.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -79,6 +81,7 @@ import { EndWsessionComponent } from './components/end-wsession/end-wsession.com
     ListExercisesWprogramComponent,
     ExercisesWorkoutSessionComponent,
     EndWsessionComponent,
+    ViewMachineStatisticsComponent,
   ],
   imports: [
     BrowserModule,
@@ -99,6 +102,7 @@ import { EndWsessionComponent } from './components/end-wsession/end-wsession.com
     MatCardModule,
     MatSelectModule,
     MatCheckboxModule,
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

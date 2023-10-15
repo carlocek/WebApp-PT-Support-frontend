@@ -44,13 +44,13 @@ export class ExercisesWorkoutSessionComponent {
       const series: number = Math.random() * 3 + 1
       const weight: number = Math.floor(Math.random() * 100) + 1
       const repetitions: number = Math.floor(Math.random() * 3) + 1
-      const date = new Date()
-      const timestamp = date.toISOString()
-
+      
       let i: number
       for(i=0; i<series; i++){
+        const date = new Date()
+        const timestamp = date.toISOString()
         if(this.activeExercise.machine == 'Nessuno'){
-          this.dexieService.addSessionData(ws, this.activeExercise.name, this.activeExercise.machineId, 
+          this.dexieService.addSessionData(ws, this.activeExercise.name, -1, 
             0, parseInt(this.sessionDataForm.value.repetition, 10), timestamp)
         }else{
           this.dexieService.addSessionData(ws, this.activeExercise.name, this.activeExercise.machineId, 
@@ -75,10 +75,10 @@ export class ExercisesWorkoutSessionComponent {
       const weight: number = Math.floor(Math.random() * 100) + 1
       const repetitions: number = Math.floor(Math.random() * 3) + 1
       let i: number
-      const date = new Date();
-      const timestamp = date.toISOString();
 
       for(i=0; i<series; i++){
+        const date = new Date();
+        const timestamp = date.toISOString();
         if(this.activeExercise.machine == 'Nessuno'){
           this.dexieService.addSessionData(ws, this.activeExercise.name, this.activeExercise.machineId, 
             0, parseInt(this.sessionDataForm.value.repetition, 10), timestamp)

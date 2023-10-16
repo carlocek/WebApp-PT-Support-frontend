@@ -11,7 +11,7 @@ export interface WorkoutSession {
 }
 
 export interface SessionData {
-  exName: string
+  exerciseName: string
   machineId:number
   load:number 
   repetitions:number
@@ -65,9 +65,9 @@ export class DexieService extends Dexie {
     return this.wsessions.get(wSessionId)
   }
 
-  addSessionData(wSession : WorkoutSession | undefined, exName:string, machineId:number, load:number , 
+  addSessionData(wSession : WorkoutSession | undefined, exerciseName:string, machineId:number, load:number , 
     repetitions:number, timestamp:string){
-    const data : SessionData = {machineId, exName, load, repetitions, timestamp}
+    const data : SessionData = {machineId, exerciseName, load, repetitions, timestamp}
     if(wSession){
      wSession.sessionData.push(data)
      this.wsessions.update(wSession, wSession)

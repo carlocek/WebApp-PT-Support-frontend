@@ -147,6 +147,13 @@ export class PersonalTrainerService {
     console.log("header immesso nella richiesta http: ", this.headers)
     return this.http.get(backendUrl, { headers: this.headers })
   }
+
+  getMachinesUsage(){
+    this.setHeaders()
+    const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/ptrainers/machine-usage'
+    console.log("header immesso nella richiesta http: ", this.headers)
+    return this.http.get(backendUrl, { headers: this.headers })
+  }
   
   ping(): Observable<HttpResponse<any>> {
     this.setHeaders()

@@ -25,9 +25,11 @@ import { ChangePtComponent } from './components/change-pt/change-pt.component';
 import { ListExercisesWprogramComponent } from './components/list-exercises-wprogram/list-exercises-wprogram.component';
 import { ExercisesWorkoutSessionComponent } from './components/exercises-workout-session/exercises-workout-session.component';
 import { EndWsessionComponent } from './components/end-wsession/end-wsession.component';
+import { ViewMachineStatisticsComponent } from './components/view-machine-statistics/view-machine-statistics.component';
 
 
 const routes: Routes = [
+  {path: 'pt/view-machine-statistics', component: ViewMachineStatisticsComponent},
   {path: 'pt/create-gym-machine', component: CreateGymMachineComponent},
   {path: 'pt/create-wprogram', component: CreateWorkoutProgramComponent},
   {path: 'pt/assign-wprogram-to-customer/:id', component: AssignWorkoutProgramToCustomerComponent},

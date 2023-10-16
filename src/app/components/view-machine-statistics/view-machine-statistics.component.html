@@ -1,0 +1,15 @@
+<div class="main-container">  
+    <app-pt-dashboard-toolbar [isDashboard]="true"></app-pt-dashboard-toolbar> 
+
+    <div class="container">
+        <div style="display: block;">
+          <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions">
+          </canvas>
+        </div>
+    </div>
+
+
+</div>

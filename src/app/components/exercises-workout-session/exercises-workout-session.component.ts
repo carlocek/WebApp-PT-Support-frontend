@@ -13,7 +13,7 @@ import { Input } from '@angular/core';
 export class ExercisesWorkoutSessionComponent {
   exercises: any
   nOfExercises: number = 0
-  wpName: string | null
+  programName: string | null
   activeExercise: any
   i: number = 0
   sessionDataForm : FormGroup
@@ -23,7 +23,7 @@ export class ExercisesWorkoutSessionComponent {
   constructor(private route: ActivatedRoute, private customerService:CustomerService, private fb: FormBuilder,
     private dexieService: DexieService, private router: Router){
     const idParam = this.route.snapshot.paramMap.get('id')
-    this.wpName = this.route.snapshot.paramMap.get('name')
+    this.programName = this.route.snapshot.paramMap.get('name')
     const id = this.route.snapshot.paramMap.get('wsId')
     if(id)
       this.workoutSessionId = parseInt(id, 10)
@@ -44,11 +44,12 @@ export class ExercisesWorkoutSessionComponent {
       const series: number = Math.random() * 3 + 1
       const weight: number = Math.floor(Math.random() * 100) + 1
       const repetitions: number = Math.floor(Math.random() * 3) + 1
-      const date = new Date()
-      const timestamp = date.toISOString()
+      
 
       let i: number
       for(i=0; i<series; i++){
+        const date = new Date()
+        const timestamp = date.toISOString();
         if(this.activeExercise.machine == 'Nessuno'){
           this.dexieService.addSessionData(ws, this.activeExercise.name, this.activeExercise.machineId, 
             0, parseInt(this.sessionDataForm.value.repetition, 10), timestamp)
@@ -75,10 +76,10 @@ export class ExercisesWorkoutSessionComponent {
       const weight: number = Math.floor(Math.random() * 100) + 1
       const repetitions: number = Math.floor(Math.random() * 3) + 1
       let i: number
-      const date = new Date();
-      const timestamp = date.toISOString();
 
       for(i=0; i<series; i++){
+        const date = new Date();
+        const timestamp = date.toISOString();
         if(this.activeExercise.machine == 'Nessuno'){
           this.dexieService.addSessionData(ws, this.activeExercise.name, this.activeExercise.machineId, 
             0, parseInt(this.sessionDataForm.value.repetition, 10), timestamp)

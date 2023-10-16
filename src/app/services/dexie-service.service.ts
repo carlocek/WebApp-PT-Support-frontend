@@ -3,7 +3,7 @@ import Dexie from 'dexie';
 
 export interface WorkoutSession {
   id?: number 
-  wpName:string | null
+  programName:string | null
   customerId: number
   startTime: string
   endTime: string
@@ -38,13 +38,13 @@ export class DexieService extends Dexie {
     this.wsessions = this.table('wsessions');
   }
 
-  inizializeSession(wpName:string | null, customerId: number){
+  inizializeSession(programName:string | null, customerId: number){
     const id: number = Math.floor(Math.random() * 100000)
     const date = new Date()
     const startTime = date.toISOString()
     const endTime: string = ""
     let sessionData : SessionData[] = []
-    let wsession: WorkoutSession = {id, customerId, wpName, startTime, endTime, sessionData}
+    let wsession: WorkoutSession = {id, customerId, programName, startTime, endTime, sessionData}
     this.wsessions.add(wsession)
     return wsession
   }

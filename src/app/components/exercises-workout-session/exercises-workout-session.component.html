@@ -6,7 +6,7 @@
     <div *ngIf="!isLoading">
         <form (ngSubmit)="onSubmit()" [formGroup]="sessionDataForm">
             <div class="section">
-                <font size="5">{{wpName}} - Esercizio n°{{this.i}}</font><br> 
+                <font size="5">{{programName}} - Esercizio n°{{this.i}}</font><br> 
                     <mat-card class="customer-card" >
                     <mat-card-header>
                         <mat-card-title>{{activeExercise.name}}</mat-card-title>

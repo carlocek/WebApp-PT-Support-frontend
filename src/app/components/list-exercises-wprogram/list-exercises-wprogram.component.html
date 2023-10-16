@@ -1,7 +1,7 @@
 <div class="main-container">
     <app-customer-dashboard-toolbar [isDashboard]="false"></app-customer-dashboard-toolbar>
     <div class="section">
-        <font size="5">Riepilogo esercizi della scheda di allenamento: {{wpName}} </font><br> 
+        <font size="5">Riepilogo esercizi della scheda di allenamento: {{programName}} </font><br> 
         <mat-list class="mat-list" role="list" *ngFor="let ex of exercises">
               <mat-card class="customer-card" >
                 <mat-card-header>
@@ -15,7 +15,7 @@
               </mat-card>
         </mat-list>
         <div class="button-row">
-            <button type="submit" mat-raised-button color="primary" routerLink="/customer/workout-session/{{wpId}}/{{wpName}}/{{wsessionId}}"> Inizia Allenamento </button>
+            <button type="submit" mat-raised-button color="primary" routerLink="/customer/workout-session/{{wpId}}/{{programName}}/{{wsessionId}}"> Inizia Allenamento </button>
         </div>
     </div>
   </div>

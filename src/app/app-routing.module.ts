@@ -26,7 +26,8 @@ import { ListExercisesWprogramComponent } from './components/list-exercises-wpro
 import { ExercisesWorkoutSessionComponent } from './components/exercises-workout-session/exercises-workout-session.component';
 import { EndWsessionComponent } from './components/end-wsession/end-wsession.component';
 import { ViewMachineStatisticsComponent } from './components/view-machine-statistics/view-machine-statistics.component';
-
+import { ViewExerciseProgressionComponent } from './components/view-exercise-progression/view-exercise-progression.component';
+import { ViewCustomerProgramForStaticsComponent } from './components/view-customer-program-for-statics/view-customer-program-for-statics.component';
 
 const routes: Routes = [
   {path: 'pt/view-machine-statistics', component: ViewMachineStatisticsComponent},
@@ -47,6 +48,7 @@ const routes: Routes = [
   {path: 'pt/list-workout-programs', component: ListWprogramsComponent},
   {path: 'pt/search-wprogram', component: SearchWprogramComponent},
   {path: 'pt/search-customer', component: SearchCustomerComponent},
+  {path: 'pt/view-exercise-progression/:cId/:wpName', component: ViewExerciseProgressionComponent},
   {path: 'login-customer', component: LoginCustomerComponent},
   {path: 'register-customer', component: RegisterCustomerComponent},
   {path: 'customer', component: CustomerDashboardComponent},
@@ -55,6 +57,10 @@ const routes: Routes = [
   {path: 'customer/list-exercise-wprogram/:id/:name', component: ListExercisesWprogramComponent},
   {path: 'customer/workout-session/:id/:name/:wsId', component:ExercisesWorkoutSessionComponent},
   {path: 'customer/end-wsession/:wsId', component:EndWsessionComponent},
+
+  {path: 'view-customer-programs-for-statistics/:cId', component: ViewCustomerProgramForStaticsComponent},
+  {path: 'view-exercise-progression/:cId/:wpName', component: ViewExerciseProgressionComponent},
+  
   {path: '', redirectTo: '/home', pathMatch: 'full'},
 ];
 

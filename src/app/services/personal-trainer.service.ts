@@ -154,6 +154,13 @@ export class PersonalTrainerService {
     console.log("header immesso nella richiesta http: ", this.headers)
     return this.http.get(backendUrl, { headers: this.headers })
   }
+
+  getExerciseLoadProgression(cId:string|null, wprogramName:string|null, exName:string){
+    this.setHeaders()
+    const backendUrl = 'http://localhost:8080/WebApp-PT-Support/rest/ptrainers/get-exercise-progression/'+cId+"/"+wprogramName+"/"+exName
+    console.log("header immesso nella richiesta http: ", this.headers)
+    return this.http.get(backendUrl, { headers: this.headers })
+  }
   
   ping(): Observable<HttpResponse<any>> {
     this.setHeaders()

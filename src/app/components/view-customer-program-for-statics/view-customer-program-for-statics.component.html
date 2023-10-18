@@ -1,0 +1,31 @@
+<div class="main-container">
+    <div *ngIf="!isCustomer">
+      <app-pt-dashboard-toolbar [isDashboard]="false"></app-pt-dashboard-toolbar> 
+    </div>
+    <div *ngIf="isCustomer">
+      <app-customer-dashboard-toolbar [isDashboard]="false"></app-customer-dashboard-toolbar> 
+    </div>
+    <div class="section">
+      <font size="5">Di quale programma di allenamento vuoi vedere le statistiche?</font><br />
+        <mat-list class="mat-list" role="list" *ngFor="let wp of wPrograms">
+              <mat-card class="customer-card" >
+                <mat-card-header>
+                  <mat-card-title>{{wp.name}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <p>Difficoltà: {{wp.difficultyLevel}}</p>
+                  <p>Durata media dell'allenamento: {{wp.estimatedDuration}} minuti</p>
+                  <p>Tipologia: {{wp.workoutProgramType}}</p>
+                  <p>Descrizione: {{wp.description}}</p>
+                  <p>Esercizi del workout:</p>
+                  <mat-list class="mat-list" role="list" *ngFor = "let e of wp.exerciseList">
+                    <p>- {{e}}</p>
+                  </mat-list>
+                  <div class="button-row">
+                    <button mat-raised-button color="primary" routerLink="/view-exercise-progression/{{this.cId}}/{{wp.name}}">Vedi Statistiche</button>
+                </div>
+                </mat-card-content>
+              </mat-card>
+        </mat-list>
+    </div>
+  </div>

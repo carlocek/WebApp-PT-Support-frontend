@@ -11,8 +11,10 @@
             <font size = "4">Fine: {{wSession.endTime}}</font>
             <br>
             <mat-list class="mat-list" role="list" *ngFor="let data of wSession.sessionData">
-                <font size = "3">Esercizio:{{data.exName}}</font>
-                <font size = "3">Carico:{{data.load}}</font>
+                <font size = "3">Esercizio:{{data.exerciseName}}</font>
+                <div *ngIf="data.load > 0">
+                    <font size = "3">Carico:{{data.load}}</font>
+                </div>
                 <font size = "3">Ripetizioni:{{data.repetitions}}</font>
                 <font size = "3">Tempo:{{data.timestamp}}</font>
                 <br>

@@ -1,0 +1,38 @@
+<div class="main-container">  
+    <div *ngIf="!isCustomer">
+      <app-pt-dashboard-toolbar [isDashboard]="false"></app-pt-dashboard-toolbar> 
+    </div>
+    <div *ngIf="isCustomer">
+      <app-customer-dashboard-toolbar [isDashboard]="false"></app-customer-dashboard-toolbar> 
+    </div>
+    <div class="container">
+
+      <form (ngSubmit)="onSubmit()" [formGroup]="exerciseForm">
+        <mat-label>Esercizi della scheda di allenamento:</mat-label>
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-select multiple formControlName="exName" placeholder="Scegli l'esercizio" [multiple]="false" (selectionChange)="onSubmit()">
+              <mat-option *ngFor="let ex of exercises" [value]="ex.name">{{ex.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+        </p>
+    </form>
+      <br>
+      <div *ngIf="isLoading">
+        <p>Caricamento...</p>
+      </div>
+      <div *ngIf="!isLoading">
+          <div style="width: 800px; height: 400px">
+            <canvas baseChart 
+                    [type]="'line'"
+                    [datasets]="lineChartData"
+                    [labels]="lineChartLabels"
+                    [options]="lineChartOptions"
+                    [legend]="true">
+            </canvas>
+          </div>
+        </div>
+    </div>
+</div>
+

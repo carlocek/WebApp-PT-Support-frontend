@@ -1,0 +1,51 @@
+.main-container {
+    padding: 20px;
+  }
+
+  .mat-toolbar-centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: left;
+  }
+
+  .mat-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: -20px;
+    text-align: left;
+  }
+
+  .mat-list-item {
+    text-align: left;
+  }
+
+  
+  .button-row {
+    display: flex;
+  }
+
+  .button-row .mat-mdc-button-base {
+    margin: 4px 8px 8px 0;
+  }
+
+  .spacer {
+    margin-left: 20px;
+  }
+
+  .customer-card {
+    max-width: 400px;
+    border: 1px solid black;
+    display: block;
+    background-image: url('src/assets/Sfondocard.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }

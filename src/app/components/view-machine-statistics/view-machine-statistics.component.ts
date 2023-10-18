@@ -12,6 +12,7 @@ export class ViewMachineStatisticsComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
   machines: any
   machineFrequency: any; 
+  isLoading:boolean = true
   barChartLabels: string[] = [];
   barChartData: any[] = [];
   barChartOptions: any = {
@@ -21,6 +22,7 @@ export class ViewMachineStatisticsComponent implements OnInit {
   constructor(private ptService: PersonalTrainerService) {}
 
   ngOnInit() {
+    this.isLoading = true
     this.ptService.getGymMachines().subscribe((data: any) => {
       this.machines = Object.keys(data).map((key)=>{ return data[key]})
     });
@@ -43,5 +45,6 @@ export class ViewMachineStatisticsComponent implements OnInit {
       data: Array.from(this.machineFrequency.values()),
       label: 'Frequency'
     });
+    this.isLoading = false
   }
 }

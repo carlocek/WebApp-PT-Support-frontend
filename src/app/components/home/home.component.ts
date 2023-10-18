@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit{
 
   customerLogged: boolean = !(localStorage.getItem("customerEmail") == null)
   ptLogged: boolean = !(localStorage.getItem("ptEmail") == null)
+  isLoading = true
 
   constructor(private ptService: PersonalTrainerService) {}
 
@@ -59,6 +60,7 @@ export class HomeComponent implements OnInit{
         
       }
     });
+    this.isLoading = false
   }
   
 }

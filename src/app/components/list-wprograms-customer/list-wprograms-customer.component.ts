@@ -12,6 +12,6 @@ export class ListWprogramsCustomerComponent {
   constructor(private customerService: CustomerService){
     this.customerService.getWorkoutPrograms(localStorage.getItem('customerId')).subscribe((data: any) =>{
       this.wPrograms = Object.keys(data).map((key)=>{ return data[key]})
-    })    
+    })
   }
 }

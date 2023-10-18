@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 import { LoginService } from 'src/app/services/login.service'
 import { LoginForm } from 'src/app/model/login-form'
 import { Router } from '@angular/router'
+import { Observable } from 'rxjs'
 
 @Component({
   selector: 'app-login-customer',
@@ -26,10 +27,10 @@ export class LoginCustomerComponent {
   onSubmit() {
     const lf = this.loginForm.value as LoginForm
     console.log(lf)
-
-    const response = this.loginService.loginCustomer(lf).subscribe(
-      (response: any) => {
-        // Ricevi il token JWT dalla risposta HTTP
+    const loginObservable: Observable<any> = this.loginService.loginCustomer(lf)
+    
+    loginObservable.subscribe({
+      next: (response: any) => {
         this.authToken = response.token
         console.log(response)
         localStorage.setItem("token", this.authToken)
@@ -38,10 +39,11 @@ export class LoginCustomerComponent {
         this.router.navigate(['customer'])
         this.openSnackBar('Login riuscito', 'Ok')
       },
-    );
-    // localStorage.setItem("token", this.authToken);
-    this.openSnackBar('Login non riuscito, riprova', 'Ok')
-    console.log(localStorage.getItem('token'))
+      error: (error: any) => {
+        this.openSnackBar('Login non riuscito, riprova', 'Ok');
+      }
+    });
+
   }
   
   openSnackBar(message: string, action: string) {

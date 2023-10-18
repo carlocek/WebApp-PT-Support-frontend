@@ -29,9 +29,9 @@ export class EndWsessionComponent implements OnInit {
     })
     await this.dexieService.getWorkoutSession(this.wSessionId).then((ws) => {
       this.wSession = ws
+      console.log(this.wSession)
     })
-    this.customerService.saveWorkoutSession(this.wSession).subscribe()
-    this.sendWithRetry(10, 2000)
+    this.sendWithRetry(100, 2000)
   }
 
   sendWithRetry(retryCount: number, retryDelay: number) {
@@ -40,6 +40,7 @@ export class EndWsessionComponent implements OnInit {
       next: (response: HttpResponse<any>) => {
         if(response.status === 200){
           this.isLoading = false
+          this.dexieService.deleteWorkoutSession(this.wSessionId)
         }
         console.log("la richiesta ha raggiunto il backend, lo status della response è: ", response.status)      
       },

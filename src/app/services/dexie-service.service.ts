@@ -74,4 +74,8 @@ export class DexieService extends Dexie {
     }
     return(wSession)
   }
+
+  deleteWorkoutSession(wSessionId:number){
+    this.wsessions.delete(wSessionId)
+  }
 }

@@ -45,19 +45,15 @@ export class PtDashboardToolbarComponent {
       localStorage.setItem('ptId', this.personalTrainer[2])
       localStorage.setItem('ptName', this.personalTrainer[3])
       localStorage.setItem('ptSurname', this.personalTrainer[5])
-      console.log("Token preso dal local storage: ", localStorage.getItem('token'))
+      console.log(this.personalTrainer)
+      this.name = localStorage.getItem('ptName')
+      this.surname = localStorage.getItem('ptSurname')
     })
-    console.log(this.personalTrainer)
-    this.name = localStorage.getItem('ptName')
-    this.surname = localStorage.getItem('ptSurname')
+    
   }
 
   logout(){
-    localStorage.removeItem('ptName')
-    localStorage.removeItem('ptSurname')
-    localStorage.removeItem('ptEmail')
-    localStorage.removeItem('ptId')
-    localStorage.removeItem('token')
+    localStorage.clear()
     this.router.navigate(['home'])
   }
 

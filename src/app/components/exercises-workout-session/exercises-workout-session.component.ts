@@ -77,7 +77,7 @@ export class ExercisesWorkoutSessionComponent {
       let i: number
 
       for(i=0; i<series; i++){
-        const date = new Date();
+        const date = new Date()
         const timestamp = date.toISOString();
         if(this.activeExercise.machine == 'Nessuno'){
           this.dexieService.addSessionData(ws, this.activeExercise.name, this.activeExercise.machineId, 

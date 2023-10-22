@@ -40,15 +40,17 @@ export class ExercisesWorkoutSessionComponent {
   }
 
   async onSubmit(){
-    await this.dexieService.getWorkoutSession(this.workoutSessionId).then((ws) => {
+    await this.dexieService.getWorkoutSession(this.workoutSessionId).then(async (ws) => {
       const series: number = Math.random() * 3 + 1
       const weight: number = Math.floor(Math.random() * 100) + 1
       const repetitions: number = Math.floor(Math.random() * 3) + 1
 
       let i: number
       for(i=0; i<series; i++){
+        await this.delay(1000);
         const date = new Date()
         const timestamp = date.toISOString();
+        console.log(timestamp)
         if(this.activeExercise.machine == 'Nessuno'){
           this.dexieService.addSessionData(ws, this.activeExercise.name, -1, 
             0, parseInt(this.sessionDataForm.value.repetition, 10), timestamp)
@@ -70,13 +72,15 @@ export class ExercisesWorkoutSessionComponent {
   }
 
   async endWsession(){
-    await this.dexieService.getWorkoutSession(this.workoutSessionId).then((ws) => {
+    this.isLoading = true
+    await this.dexieService.getWorkoutSession(this.workoutSessionId).then(async (ws) => {
       const series: number = Math.random() * 3 + 1
       const weight: number = Math.floor(Math.random() * 100) + 1
       const repetitions: number = Math.floor(Math.random() * 3) + 1
       let i: number
 
       for(i=0; i<series; i++){
+        await this.delay(1000);
         const date = new Date()
         const timestamp = date.toISOString();
         if(this.activeExercise.machine == 'Nessuno'){
@@ -91,6 +95,10 @@ export class ExercisesWorkoutSessionComponent {
     })
     
     this.router.navigate(['customer/end-wsession/'+this.workoutSessionId])
+  }
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
   }
 
 }

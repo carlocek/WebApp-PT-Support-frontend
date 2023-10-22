@@ -16,6 +16,7 @@ export class ViewMachineStatisticsComponent implements OnInit {
   barChartLabels: string[] = [];
   barChartData: any[] = [];
   barChartOptions: any = {
+    maintainAspectRatio: false,
     responsive: true
   };
 
